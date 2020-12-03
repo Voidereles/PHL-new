@@ -1,0 +1,29 @@
+{
+  "name": "PHL-new",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Voidereles/PHL-new.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Voidereles/PHL-new/issues"
+  },
+  "homepage": "https://github.com/Voidereles/PHL-new#readme",
+  "dependencies": {
+    "dat.gui": "^0.7.7",
+    "gsap": "^3.5.1",
+    "jquery": "^3.5.1",
+    "three": "^0.123.0",
+    "three-gltf-loader": "^1.111.0",
+    "three-orbitcontrols-ts": "^0.1.2"
+  },
+  "devDependencies": {},
+  "description": ""
+}

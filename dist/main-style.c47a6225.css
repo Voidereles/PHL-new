@@ -938,12 +938,12 @@ h6 {
 }
 
 .news .owl-carousel .owl-nav button.owl-prev {
-  background-image: url("/8e84a713d035b3f8e157d9dcf2914c94.svg");
+  background-image: url("/chevron-left.f2914c94.svg");
 }
 
 .news .owl-carousel .owl-nav button.owl-next {
   background-position: 65%;
-  background-image: url("/f765a24fec176840d7b45a4407e57061.svg");
+  background-image: url("/chevron-right.07e57061.svg");
 }
 
 .news__item-container {
@@ -1195,7 +1195,7 @@ h6 {
 }
 
 .map {
-  background-image: url("/57bfbce7e8b85f69597eb0d520980a22.PNG");
+  background-image: url("/map.20980a22.PNG");
   background-size: cover;
   background-repeat: no-repeat;
   height: 90vh;
@@ -1348,7 +1348,7 @@ h6 {
     padding-top: 5vh;
   }
   .projects__item {
-    height: 110px;
+    height: initial;
   }
   .projects__title {
     font-size: 3rem;
@@ -1357,8 +1357,15 @@ h6 {
   }
   .projects__description {
     right: 0;
-    padding: 0.5rem;
+    padding: 2rem 0.5rem;
     width: 100%;
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1;
+    bottom: initial;
+    height: initial;
+    right: initial;
+    position: initial;
   }
   .jobs {
     margin: initial;
@@ -1413,12 +1420,25 @@ h6 {
     z-index: 3;
   }
   .footer {
-    margin-top: 0;
+    margin-top: -1rem;
   }
   .footer__container {
     margin-left: 1rem;
     margin-right: 1rem;
     width: calc(100% - 2rem);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) and (orientation: portrait) {
+  .projects {
+    padding-bottom: 85px;
+  }
+  .news {
+    margin-top: 0;
+  }
+  .contact__bottom-rectangle {
+    top: -70%;
+    height: 130%;
   }
 }
 

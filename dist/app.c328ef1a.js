@@ -48831,14 +48831,6 @@ var colorChange = function colorChange(getColorTheme) {
 };
 
 var DecreaseLogoSize = function DecreaseLogoSize() {
-  _gsap.default.to(camera, {
-    duration: 4.2,
-    zoom: 1,
-    onUpdate: function onUpdate() {
-      camera.updateProjectionMatrix();
-    }
-  });
-
   _gsap.default.to(camera.position, {
     duration: 4.2,
     x: 2.3,
@@ -48857,7 +48849,27 @@ var DecreaseLogoSize = function DecreaseLogoSize() {
     onUpdate: function onUpdate() {
       controls.update();
     }
-  });
+  }); // if (window.innerWidth <= 768) {
+  //     gsap.to(camera.position, {
+  //         duration: 4.2,
+  //         x: 2.3,
+  //         y: 12,
+  //         z: 2,
+  //         onUpdate: function () {
+  //             update();
+  //         }
+  //     })
+  //     gsap.to(controls.target, {
+  //         duration: 4.2,
+  //         x: -0.6,
+  //         y: 3,
+  //         z: -0.3,
+  //         onUpdate: function () {
+  //             controls.update();
+  //         }
+  //     });
+  // }
+
 };
 
 var FarAwayLogo = function FarAwayLogo() {
@@ -48890,16 +48902,9 @@ var FarAwayLogo = function FarAwayLogo() {
 };
 
 var IncreaseLogoSize = function IncreaseLogoSize() {
-  _gsap.default.to(camera, {
-    duration: 3.2,
-    onUpdate: function onUpdate() {
-      camera.updateProjectionMatrix();
-    }
-  });
-
   _gsap.default.to(camera.position, {
-    duration: 3.2,
-    x: 2.45,
+    duration: 4.2,
+    x: 2.2,
     y: 7,
     z: 2,
     onUpdate: function onUpdate() {
@@ -48909,7 +48914,7 @@ var IncreaseLogoSize = function IncreaseLogoSize() {
 
   _gsap.default.to(controls.target, {
     duration: 3.2,
-    x: 2.45,
+    x: 2.2,
     y: 4,
     z: 1,
     onUpdate: function onUpdate() {
@@ -48969,10 +48974,10 @@ function init() {
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
 
   if (window.innerWidth <= 768) {
-    camera.fov = 60;
+    camera.fov = 80;
   }
 
-  camera.position.set(2.45, 20, 2);
+  camera.position.set(2.2, 20, 2);
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0xc6cbd8); // scene.background.color = 0xccaacc;
 
@@ -49040,7 +49045,7 @@ function init() {
   renderer.shadowMap.enabled = true;
   container.appendChild(renderer.domElement);
   controls = new _OrbitControls.OrbitControls(camera, renderer.domElement);
-  controls.target.set(2.45, 4, 1);
+  controls.target.set(2.2, 4, 1);
   controls.update();
   controls.enabled = false; //blocking orbit controls
   //moving mouse
@@ -49094,23 +49099,18 @@ function init() {
     if (window.pageYOffset < window.innerHeight / 3) {
       IncreaseLogoSize();
       console.log("increase no scroll");
-    } else if (window.pageYOffset > window.innerHeight / 3 && window.pageYOffset < window.innerHeight * 1.6 && window.pageYOffset < window.innerHeight) {
+    } else if (window.pageYOffset >= window.innerHeight / 3) {
       DecreaseLogoSize();
       console.log('decrease no scroll');
-    } else if (window.pageYOffset > window.innerHeight * 1.6) {
-      LeftLogoPosition();
     }
-  }); // click(fn) use .on("click", fn). Instead of .click() use .trigger("click")
-
+  });
   $(window).on('scroll', function () {
-    if (window.pageYOffset >= window.innerHeight * 1.6) {
-      LeftLogoPosition();
-      console.log("decrease");
-    } else if (window.pageYOffset > window.innerHeight / 3 && window.pageYOffset < window.innerHeight * 1.6 && window.pageYOffset < window.innerHeight) {
-      DecreaseLogoSize();
-      console.log('decrease no scroll');
-    } else if (window.pageYOffset < window.innerHeight / 3) {
+    if (window.pageYOffset < window.innerHeight / 3) {
       IncreaseLogoSize();
+      console.log('increase scroll');
+    } else if (window.pageYOffset >= window.innerHeight / 3) {
+      DecreaseLogoSize();
+      console.log('decrease scroll');
     }
   });
   var gui = new _dat.GUI();
@@ -49234,15 +49234,34 @@ function update() {
 }
 
 function animate() {
-  update();
-
-  if (window.innerWidth > 768) {
-    targetCamera.y += (-mouseXpercent * 55 - targetCamera.y) / 10;
+  if (window.pageYOffset < window.innerHeight / 3) {
+    IncreaseLogoSize();
+    console.log('increase scroll');
+  } else if (window.pageYOffset >= window.innerHeight / 3) {
+    DecreaseLogoSize();
+    console.log('decrease scroll');
   }
 
-  mesh.rotation.x += 0.01;
-  mesh.rotation.y += 0.02;
+  update(); // targetCamera.x += (-mouseXpercent * 15 - targetCamera.x) / 10;
+
+  if (window.innerWidth > 768) {
+    // targetCamera.z += (-mouseYpercent * 15 - targetCamera.z) / 10;
+    targetCamera.y += (-mouseXpercent * 55 - targetCamera.y) / 10; // camera.lookAt(targetCamera);
+  }
+
+  if (onMouseMoveLogoRotation == false) {
+    controls.update();
+  } // targetCamera.rotation += (-mouseXpercent * 55) / 10;
+  // mesh.rotation.y += (-mouseYpercent * 0.13 - mesh.rotation.y);
+  // mesh.rotateY(Math.random() * 360 * 0.01745327)
+  // mesh.translateZ(0
+  // targetCamera.y += (-(mouseYpercent * 15) + 1 - targetCamera.y) / 15;
+  // camera.lookAt(mesh.position);
+
+
   requestAnimationFrame(animate, renderer.domElement);
+  var delta = clock.getDelta();
+  if (mixer !== undefined) mixer.update(delta);
   renderer.render(scene, camera);
 }
 
@@ -49362,7 +49381,7 @@ $(document).ready(function () {
     $('.nav-toggle').toggleClass('nav-toggle--entered');
   }); // $(".projects__title")
 });
-},{"./threeScript.js":"threeScript.js"}],"../../../../AppData/Roaming/npm-cache/_npx/16748/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./threeScript.js":"threeScript.js"}],"../../../../AppData/Roaming/npm-cache/_npx/3188/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -49390,7 +49409,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58146" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57707" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -49566,5 +49585,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../AppData/Roaming/npm-cache/_npx/16748/node_modules/parcel/src/builtins/hmr-runtime.js","app.js"], null)
+},{}]},{},["../../../../AppData/Roaming/npm-cache/_npx/3188/node_modules/parcel/src/builtins/hmr-runtime.js","app.js"], null)
 //# sourceMappingURL=/app.c328ef1a.js.map

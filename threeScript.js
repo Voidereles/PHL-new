@@ -54,14 +54,6 @@ const colorChange = function (getColorTheme) {
 }
 
 const DecreaseLogoSize = function () {
-    gsap.to(camera, {
-        duration: 4.2,
-        zoom: 1,
-        onUpdate: function () {
-            camera.updateProjectionMatrix();
-        }
-    });
-
     gsap.to(camera.position, {
         duration: 4.2,
         x: 2.3,
@@ -81,6 +73,28 @@ const DecreaseLogoSize = function () {
             controls.update();
         }
     });
+
+    // if (window.innerWidth <= 768) {
+    //     gsap.to(camera.position, {
+    //         duration: 4.2,
+    //         x: 2.3,
+    //         y: 12,
+    //         z: 2,
+    //         onUpdate: function () {
+    //             update();
+    //         }
+    //     })
+
+    //     gsap.to(controls.target, {
+    //         duration: 4.2,
+    //         x: -0.6,
+    //         y: 3,
+    //         z: -0.3,
+    //         onUpdate: function () {
+    //             controls.update();
+    //         }
+    //     });
+    // }
 }
 const FarAwayLogo = function () {
     gsap.to(camera, {
@@ -112,16 +126,9 @@ const FarAwayLogo = function () {
 }
 
 const IncreaseLogoSize = function () {
-    gsap.to(camera, {
-        duration: 3.2,
-        onUpdate: function () {
-            camera.updateProjectionMatrix();
-        }
-    });
-
     gsap.to(camera.position, {
-        duration: 3.2,
-        x: 2.45,
+        duration: 4.2,
+        x: 2.2,
         y: 7,
         z: 2,
         onUpdate: function () {
@@ -131,7 +138,7 @@ const IncreaseLogoSize = function () {
 
     gsap.to(controls.target, {
         duration: 3.2,
-        x: 2.45,
+        x: 2.2,
         y: 4,
         z: 1,
         onUpdate: function () {
@@ -200,9 +207,9 @@ function init() {
 
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
     if (window.innerWidth <= 768) {
-        camera.fov = 60;
+        camera.fov = 80;
     }
-    camera.position.set(2.45, 20, 2);
+    camera.position.set(2.2, 20, 2);
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xc6cbd8);
@@ -297,7 +304,7 @@ function init() {
 
 
     controls = new OrbitControls(camera, renderer.domElement);
-    controls.target.set(2.45, 4, 1);
+    controls.target.set(2.2, 4, 1);
     controls.update();
     controls.enabled = false; //blocking orbit controls
 
@@ -366,27 +373,21 @@ function init() {
         if (window.pageYOffset < window.innerHeight / 3) {
             IncreaseLogoSize();
             console.log("increase no scroll");
-        } else if (window.pageYOffset > window.innerHeight / 3 && window.pageYOffset < window.innerHeight * 1.6 && window.pageYOffset < window.innerHeight) {
+        } else if (window.pageYOffset >= window.innerHeight / 3) {
             DecreaseLogoSize();
             console.log('decrease no scroll');
-        } else if (window.pageYOffset > window.innerHeight * 1.6) {
-            LeftLogoPosition();
         }
-
     });
 
 
 
-    // click(fn) use .on("click", fn). Instead of .click() use .trigger("click")
     $(window).on('scroll', function () {
-        if (window.pageYOffset >= window.innerHeight * 1.6) {
-            LeftLogoPosition();
-            console.log("decrease");
-        } else if (window.pageYOffset > window.innerHeight / 3 && window.pageYOffset < window.innerHeight * 1.6 && window.pageYOffset < window.innerHeight) {
-            DecreaseLogoSize();
-            console.log('decrease no scroll');
-        } else if (window.pageYOffset < window.innerHeight / 3) {
+        if (window.pageYOffset < window.innerHeight / 3) {
             IncreaseLogoSize();
+            console.log('increase scroll')
+        } else if (window.pageYOffset >= window.innerHeight / 3) {
+            DecreaseLogoSize();
+            console.log('decrease scroll');
         }
     });
 
@@ -533,19 +534,37 @@ function update() {
 }
 
 function animate() {
-
-
-    update();
-    if (window.innerWidth > 768) {
-        targetCamera.y += (-mouseXpercent * 55 - targetCamera.y) / 10;
+    if (window.pageYOffset < window.innerHeight / 3) {
+        IncreaseLogoSize();
+        console.log('increase scroll')
+    } else if (window.pageYOffset >= window.innerHeight / 3) {
+        DecreaseLogoSize();
+        console.log('decrease scroll');
     }
 
-    mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.02;
+    update();
+    // targetCamera.x += (-mouseXpercent * 15 - targetCamera.x) / 10;
+    if (window.innerWidth > 768) {
+        // targetCamera.z += (-mouseYpercent * 15 - targetCamera.z) / 10;
+        targetCamera.y += (-mouseXpercent * 55 - targetCamera.y) / 10;
+        // camera.lookAt(targetCamera);
+    }
 
+    if (onMouseMoveLogoRotation == false) {
+        controls.update();
+    }
+    // targetCamera.rotation += (-mouseXpercent * 55) / 10;
+    // mesh.rotation.y += (-mouseYpercent * 0.13 - mesh.rotation.y);
 
+    // mesh.rotateY(Math.random() * 360 * 0.01745327)
+    // mesh.translateZ(0
+    // targetCamera.y += (-(mouseYpercent * 15) + 1 - targetCamera.y) / 15;
+
+    // camera.lookAt(mesh.position);
     requestAnimationFrame(animate, renderer.domElement);
 
+    var delta = clock.getDelta();
+    if (mixer !== undefined) mixer.update(delta);
 
     renderer.render(scene, camera);
 

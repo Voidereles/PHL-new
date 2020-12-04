@@ -49063,7 +49063,6 @@ function init() {
 
     gltf.scene.traverse(function (child) {
       if (child.isMesh) {
-        console.log('ds');
         child.castShadow = true;
         child.receiveShadow = true;
       }
@@ -49130,11 +49129,9 @@ function init() {
   };
   $(window).on('load', function () {
     if (window.pageYOffset < window.innerHeight / 3) {
-      IncreaseLogoSize();
-      console.log("increase no scroll");
+      IncreaseLogoSize(); // console.log("increase no scroll");
     } else if (window.pageYOffset >= window.innerHeight / 3 & referOffset >= window.pageYOffset) {
-      DecreaseLogoSize();
-      console.log('decrease scroll');
+      DecreaseLogoSize(); // console.log('decrease scroll');
     } else if (referOffset < window.pageYOffset && jobsOffset + 400 >= window.pageYOffset) {
       FarAwayLogo();
     } else if (jobsOffset + 400 < window.pageYOffset) {
@@ -49143,11 +49140,9 @@ function init() {
   });
   $(window).on('scroll', function () {
     if (window.pageYOffset < window.innerHeight / 3) {
-      IncreaseLogoSize();
-      console.log('increase scroll');
+      IncreaseLogoSize(); // console.log('increase scroll')
     } else if (window.pageYOffset >= window.innerHeight / 3 & referOffset >= window.pageYOffset) {
-      DecreaseLogoSize();
-      console.log('decrease scroll');
+      DecreaseLogoSize(); // console.log('decrease scroll');
     } else if (referOffset < window.pageYOffset && jobsOffset + 600 >= window.pageYOffset) {
       FarAwayLogo();
     } else if (jobsOffset + 600 < window.pageYOffset) {

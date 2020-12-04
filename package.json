@@ -20,10 +20,10 @@
     "dat.gui": "^0.7.7",
     "gsap": "^3.5.1",
     "jquery": "^3.5.1",
+    "postcss": "^8.1.14",
     "three": "^0.123.0",
     "three-gltf-loader": "^1.111.0",
     "three-orbitcontrols-ts": "^0.1.2"
   },
-  "devDependencies": {},
   "description": ""
 }

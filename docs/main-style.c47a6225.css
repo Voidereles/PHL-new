@@ -1,24 +1,24 @@
 @font-face {
   font-family: 'HelveticaNowText';
-  src: url("/HelveticaNowText-Bold.d33ba852.ttf") format("truetype");
+  src: url("HelveticaNowText-Bold.d33ba852.ttf") format("truetype");
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'HelveticaNowText';
-  src: url("/HelveticaNowText-Medium.5758ce01.ttf") format("truetype");
+  src: url("HelveticaNowText-Medium.5758ce01.ttf") format("truetype");
   font-weight: 500;
 }
 
 @font-face {
   font-family: 'HelveticaNowText';
-  src: url("/HelveticaNowText-Regular.1c8e73ba.ttf") format("truetype");
+  src: url("HelveticaNowText-Regular.1c8e73ba.ttf") format("truetype");
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'HelveticaNowText';
-  src: url("/HelveticaNowText-Light.46c241d7.ttf") format("truetype");
+  src: url("HelveticaNowText-Light.46c241d7.ttf") format("truetype");
   font-weight: 300;
 }
 
@@ -986,12 +986,12 @@ h6::selection {
 }
 
 .news .owl-carousel .owl-nav button.owl-prev {
-  background-image: url("/chevron-left.f2914c94.svg");
+  background-image: url("chevron-left.f2914c94.svg");
 }
 
 .news .owl-carousel .owl-nav button.owl-next {
   background-position: 65%;
-  background-image: url("/chevron-right.07e57061.svg");
+  background-image: url("chevron-right.07e57061.svg");
 }
 
 .news__item-container {
@@ -1255,7 +1255,7 @@ h6::selection {
 }
 
 .map {
-  background-image: url("/map.20980a22.PNG");
+  background-image: url("map.20980a22.PNG");
   background-size: cover;
   background-repeat: no-repeat;
   height: 50vh;
@@ -1516,4 +1516,4 @@ h6::selection {
 }
 
 
-/*# sourceMappingURL=/main-style.c47a6225.css.map */
+/*# sourceMappingURL=main-style.c47a6225.css.map */

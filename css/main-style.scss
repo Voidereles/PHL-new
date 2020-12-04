@@ -1360,6 +1360,7 @@ h6 {
 
         top: $space2XL;
         left: $spaceXL;
+        padding: 0;
 
         &__logo {
             padding: 0;
@@ -1371,7 +1372,7 @@ h6 {
             right: 0;
             bottom: 0;
             left: 0;
-            background: rgba(17, 17, 17, 0.9);
+            background: $rgbWhite08;
             transform: translate3d(0, -100%, 0);
             transition-duration: $durationL;
             transition-timing-function: $bezierFastoutSlowin;

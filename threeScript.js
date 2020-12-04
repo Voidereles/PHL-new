@@ -157,27 +157,27 @@ const DecreaseLogoSize = function () {
         }
     });
 
-    // if (window.innerWidth <= 768) {
-    //     gsap.to(camera.position, {
-    //         duration: 4,
-    //         x: 2.3,
-    //         y: 12,
-    //         z: 2,
-    //         onUpdate: function () {
-    //             update();
-    //         }
-    //     })
+    if (window.innerWidth <= 768) {
+        gsap.to(camera.position, {
+            duration: 4,
+            x: 2.3,
+            y: 12,
+            z: 2,
+            onUpdate: function () {
+                update();
+            }
+        })
 
-    //     gsap.to(controls.target, {
-    //         duration: 4,
-    //         x: -0.6,
-    //         y: 3,
-    //         z: -0.3,
-    //         onUpdate: function () {
-    //             controls.update();
-    //         }
-    //     });
-    // }
+        gsap.to(controls.target, {
+            duration: 4,
+            x: -0.6,
+            y: 3,
+            z: -0.3,
+            onUpdate: function () {
+                controls.update();
+            }
+        });
+    }
 }
 
 const LeftLogoPosition = function () {
@@ -296,7 +296,7 @@ function init() {
     scene.add(mesh);
 
     var grid = new THREE.GridHelper(700, 308, 0x000000, 0x000000);
-    grid.material.opacity = 0.5;
+    grid.material.opacity = 0.15;
     grid.material.transparent = true;
     scene.add(grid);
 
@@ -441,8 +441,10 @@ function init() {
         groundColor: lightH.groundColor.getHex(),
         skyColor: lightH.color.getHex(),
         color: lightD.color.getHex(),
+        // color: scene.background.color.getHex(),
         shadowMapSizeWidth: 4096,
         shadowMapSizeHeight: 4096,
+
         // backgroundColor: scene.background.color.getHex(),	
         mapsEnabled: true
         //pobieramy tu te informacje co już są	
@@ -525,6 +527,10 @@ function init() {
     gui.add(controls.target, 'x', -100, 100, 0.1).name('controlsTarget x');
     gui.add(controls.target, 'y', -100, 100, 0.1).name('controlsTarget y');
     gui.add(controls.target, 'z', -100, 100, 0.1).name('controlsTarget z');
+    // gui.add(scene.background, 'color', );
+    // gui.addColor(scene.background, 'color').onChange(() => {
+    //     scene.background.color.setHex(Number(data.color.toString().replace('#', '0x')));
+    // });
     gui.closed = true;
 
 
@@ -539,12 +545,12 @@ function init() {
     );
     $(".projects__title").mouseleave(
         function () {
-            colorChange('#c6cbd8');
+            colorChange('#FFEBDB');
         }
     );
     $(".projects__title").scroll(
         function () {
-            colorChange('#c6cbd8');
+            colorChange('#FFEBDB');
         }
     );
 

@@ -1,3 +1,27 @@
+@font-face {
+    font-family: 'HelveticaNowText';
+    src: url('../fonts/HelveticaNowText-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'HelveticaNowText';
+    src: url('../fonts/HelveticaNowText-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'HelveticaNowText';
+    src: url('../fonts/HelveticaNowText-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'HelveticaNowText';
+    src: url('../fonts/HelveticaNowText-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
 $rgbDarkest: rgb(17, 17, 17);
 $rgbBackground05: rgba(17, 17, 17, 0.5);
 $rgbDark: rgb(48, 48, 48);
@@ -18,7 +42,7 @@ $durationS: 300ms;
 $durationM: 400ms;
 $durationL: 600ms;
 $durationXL: 800ms;
-$fontStack: Muli,
+$fontStack: HelveticaNowText,
 Gotham,
 system-ui,
 -apple-system,
@@ -82,11 +106,21 @@ body {
     font-family: $fontStack;
     font-weight: $fontWeightRegular;
     font-synthesis: none;
-    color: $rgbWhite08;
+    color: $backgroundBlue07;
     border: 0;
     margin: 0;
     overflow-x: hidden;
     position: relative;
+
+    span,
+    p,
+    div,
+    a {
+        &::selection {
+            background: black;
+            color: white;
+        }
+    }
 }
 
 h1,
@@ -95,8 +129,13 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Poppins', sans-serif !important;
+    // font-family: 'Poppins', sans-serif !important;
     font-weight: bold;
+
+    &::selection {
+        background: black;
+        color: white;
+    }
 }
 
 // * {
@@ -432,7 +471,7 @@ h6 {
     padding-bottom: calc(45vh - 85px);
 
     &__heading {
-        font-size: 12px;
+        font-size: 1rem;
         letter-spacing: 4px;
         font-weight: 300;
         color: $backgroundBlue07;
@@ -441,7 +480,7 @@ h6 {
         padding-bottom: 4rem;
         position: relative;
         font-weight: 400;
-        font-family: 'Muli', sans-serif;
+        // font-family: 'Muli', sans-serif;
 
         &::before {
             content: '';
@@ -506,7 +545,7 @@ h6 {
         z-index: 1;
         text-align: right;
         opacity: 0;
-        font-family: Heebo, Muli, Helvetica, Arial, sans-serif;
+        font-family: Heebo, HelveticaNowText, Muli, Helvetica, Arial, sans-serif;
         font-weight: 300;
         font-style: normal;
         color: $backgroundBlue07;
@@ -525,8 +564,14 @@ h6 {
     width: 100%;
     padding-bottom: 100px;
 
+    .row {
+        background: radial-gradient(#ffffff00, #ffffff1c);
+        backdrop-filter: blur(1px);
+        padding: 1rem 0;
+    }
+
     &__heading {
-        font-size: 12px;
+        font-size: 1rem;
         letter-spacing: 4px;
         font-weight: 300;
         color: $backgroundBlue07;
@@ -534,7 +579,7 @@ h6 {
         padding-bottom: 4rem;
         position: relative;
         font-weight: 400;
-        font-family: 'Muli', sans-serif;
+        // font-family: 'Muli', sans-serif;
 
         &::before {
             content: '';
@@ -657,7 +702,7 @@ h6 {
     }
 
     &__heading {
-        font-size: 12px;
+        font-size: 1rem;
         letter-spacing: 4px;
         font-weight: 300;
         color: $backgroundBlue07;
@@ -666,7 +711,7 @@ h6 {
         padding-bottom: 1rem;
         position: relative;
         font-weight: 400;
-        font-family: 'Muli', sans-serif;
+        // font-family: 'Muli', sans-serif;
 
         &::before {
             content: '';
@@ -825,12 +870,16 @@ h6 {
         bottom: -50%;
         height: 50%;
         width: calc(100% + 144px);
-        background-color: $rgbBackgroundBlue;
+        // background-color: $rgbBackgroundBlue;
+        background-color: $rgbWhite08;
+
+        backdrop-filter: blur($spaceS);
         left: $leftMenuWidthMinus;
+        display: none;
     }
 
     &__heading {
-        font-size: 12px;
+        font-size: 1rem;
         letter-spacing: 4px;
         font-weight: 300;
         color: $rgbBackgroundBlue;
@@ -838,7 +887,7 @@ h6 {
         padding-bottom: 4rem;
         position: relative;
         font-weight: 400;
-        font-family: 'Muli', sans-serif;
+        // font-family: 'Muli', sans-serif;
 
         &::before {
             content: '';
@@ -864,7 +913,8 @@ h6 {
     &__item {
         position: relative;
         padding: 40px;
-        background-color: #fff;
+        background-color: $rgbWhite08;
+        backdrop-filter: blur($spaceS);
         border: 1px solid #f0f0f0;
         // border-radius: 6px;
         border-radius: 0;
@@ -876,6 +926,7 @@ h6 {
         flex-grow: 1;
         justify-content: space-between;
         display: flex;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 
         &:hover,
         &:focus,
@@ -967,8 +1018,9 @@ h6 {
 }
 
 .news {
-    // background-color: white;
-    background-color: $rgbRaisinBlack;
+    background-color: $rgbWhite08;
+    backdrop-filter: blur($spaceS);
+    // background-color: $rgbRaisinBlack;
     margin-top: 5rem;
     position: relative;
     z-index: 2;
@@ -976,7 +1028,8 @@ h6 {
     // border-bottom-left-radius: 0.5rem;
     color: $rgbDarkBlue;
     margin-right: $leftMenuWidthMinus;
-    color: white;
+    color: $backgroundBlue07;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 
     .owl-nav {
         margin-left: -24px;
@@ -989,8 +1042,6 @@ h6 {
         width: 100%;
         height: 100%;
         z-index: 0;
-
-
 
     }
 
@@ -1098,7 +1149,7 @@ h6 {
         &:hover,
         &:focus,
         &:active {
-            color: white;
+            color: black;
             // border-color: white;
             text-decoration: none;
         }
@@ -1127,16 +1178,21 @@ h6 {
     background-color: transparent;
     min-height: 50vh;
     position: relative;
+    padding-bottom: 3rem;
 
     &__bottom-rectangle {
         position: absolute;
         top: -15%;
         z-index: 1;
-        height: 77.5%;
+        height: 115%;
 
         width: calc(100% + 288px);
-        background-color: $rgbBackgroundBlue;
+
+        background-color: $rgbWhite08;
+
+        backdrop-filter: blur($spaceS);
         left: $leftMenuWidthMinus;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
     .row {
@@ -1160,6 +1216,7 @@ h6 {
         // z-index: 0;
         z-index: 1;
         left: -144px;
+        display: none;
 
         //nowe
         top: 45%;
@@ -1167,9 +1224,10 @@ h6 {
 
     &__form-container {
         padding: 40px;
-        // background-color: white;
+        background-color: $rgbWhite08;
+        backdrop-filter: blur($spaceS);
 
-        background-color: $rgbRaisinBlack;
+        // background-color: $rgbRaisinBlack;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         // border-radius: 4px;
         overflow: hidden;
@@ -1187,23 +1245,25 @@ h6 {
 
     &__input,
     &__textarea {
-
         width: 100%;
         line-height: 16px;
-        padding: 0.75rem 0 0.5rem 0;
         display: block;
-
-        color: white;
+        color: $backgroundBlue07;
         background-color: transparent;
         border: none;
         border-bottom: 1px solid $rgbDarkBlue;
-        margin-bottom: 1rem;
+        margin: 0 -0.5rem 1rem 0;
+        padding: 0.75rem 0.5rem 0.5rem 0.5rem;
 
         &:focus {
             border-bottom: 1px solid $rgbRoseMadder;
             outline: none;
-            background-color: lighten($color: $rgbRaisinBlack, $amount: 1%)
+            background-color: darken($color: white, $amount: 5%)
         }
+    }
+
+    &__textarea {
+        height: 120px;
     }
 
 
@@ -1214,12 +1274,12 @@ h6 {
         background-color: transparent;
         border: 1px solid $rgbRoseMadder;
         border-radius: 100px;
-        color: white;
+        color: $backgroundBlue07;
         transition: 0.5s $bezierFastoutSlowin;
 
         &:hover,
         &:active {
-            background-color: darken($color: $rgbRoseMadder, $amount: 10%);
+            background: $rgbRoseMadder;
             color: white;
             border: 1px solid $rgbRoseMadder;
         }
@@ -1245,7 +1305,7 @@ h6 {
     }
 
     &__info-heading {
-        font-size: 12px;
+        font-size: 1rem;
         letter-spacing: 4px;
         font-weight: 300;
         color: $backgroundBlue07;
@@ -1254,7 +1314,7 @@ h6 {
         padding-bottom: 1rem;
         position: relative;
         font-weight: 400;
-        font-family: 'Muli', sans-serif;
+        // font-family: 'Muli', sans-serif;
 
         &::before {
             content: '';
@@ -1271,6 +1331,7 @@ h6 {
 
     &__link {
         color: white;
+        color: $backgroundBlue07;
         transition: 0.3s ease;
 
         svg path {
@@ -1280,10 +1341,10 @@ h6 {
         &:hover,
         &:focus,
         &:active {
-            color: white;
+            color: $backgroundBlue07;
 
             svg path {
-                fill: white;
+                fill: $backgroundBlue07;
             }
         }
     }
@@ -1297,7 +1358,7 @@ h6 {
     // background-image: url('../images-icons/map-2.PNG');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 90vh;
+    height: 50vh;
     // width: 100%;
     position: absolute;
     // bottom: 112px;
@@ -1305,13 +1366,12 @@ h6 {
     z-index: 0;
 
     width: calc(100% + 288px);
-    bottom: -10rem;
+    top: 0;
     left: -144px;
 
 }
 
 .footer {
-    margin-top: 10rem;
     font-size: 0.7rem;
     background-color: black;
     color: grey;
@@ -1400,7 +1460,7 @@ h6 {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur($spaceM);
+            backdrop-filter: blur($spaceS);
             max-width: 100%;
             width: 100%;
             opacity: 0;
@@ -1484,6 +1544,11 @@ h6 {
         }
     }
 
+    .about .row {
+        background: $rgbWhite08;
+        backdrop-filter: blur($spaceS);
+    }
+
     .jobs {
         margin: initial;
         width: 100%;
@@ -1491,6 +1556,11 @@ h6 {
 
         &__container {
             padding-bottom: 60px;
+        }
+
+        .container-fluid {
+            margin: auto;
+            max-width: 100%;
         }
     }
 
@@ -1511,7 +1581,7 @@ h6 {
     }
 
     .contact {
-        background: $rgbBackgroundBlue;
+        // background: $rgbBackgroundBlue;
 
         &__info {
             min-height: 300px;

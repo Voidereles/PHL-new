@@ -48931,27 +48931,29 @@ var DecreaseLogoSize = function DecreaseLogoSize() {
     onUpdate: function onUpdate() {
       controls.update();
     }
-  }); // if (window.innerWidth <= 768) {
-  //     gsap.to(camera.position, {
-  //         duration: 4,
-  //         x: 2.3,
-  //         y: 12,
-  //         z: 2,
-  //         onUpdate: function () {
-  //             update();
-  //         }
-  //     })
-  //     gsap.to(controls.target, {
-  //         duration: 4,
-  //         x: -0.6,
-  //         y: 3,
-  //         z: -0.3,
-  //         onUpdate: function () {
-  //             controls.update();
-  //         }
-  //     });
-  // }
+  });
 
+  if (window.innerWidth <= 768) {
+    _gsap.default.to(camera.position, {
+      duration: 4,
+      x: 2.3,
+      y: 12,
+      z: 2,
+      onUpdate: function onUpdate() {
+        update();
+      }
+    });
+
+    _gsap.default.to(controls.target, {
+      duration: 4,
+      x: -0.6,
+      y: 3,
+      z: -0.3,
+      onUpdate: function onUpdate() {
+        controls.update();
+      }
+    });
+  }
 };
 
 var LeftLogoPosition = function LeftLogoPosition() {
@@ -49050,7 +49052,7 @@ function init() {
   mesh.receiveShadow = true;
   scene.add(mesh);
   var grid = new THREE.GridHelper(700, 308, 0x000000, 0x000000);
-  grid.material.opacity = 0.5;
+  grid.material.opacity = 0.15;
   grid.material.transparent = true;
   scene.add(grid); // model
 
@@ -49238,7 +49240,11 @@ function init() {
   gui.add(camera, 'fov', 1, 120).onChange(camera.updateProjectionMatrix());
   gui.add(controls.target, 'x', -100, 100, 0.1).name('controlsTarget x');
   gui.add(controls.target, 'y', -100, 100, 0.1).name('controlsTarget y');
-  gui.add(controls.target, 'z', -100, 100, 0.1).name('controlsTarget z');
+  gui.add(controls.target, 'z', -100, 100, 0.1).name('controlsTarget z'); // gui.add(scene.background, 'color', );
+  // gui.addColor(scene.background, 'color').onChange(() => {
+  //     scene.background.color.setHex(Number(data.color.toString().replace('#', '0x')));
+  // });
+
   gui.closed = true;
   var colorTheme; //pos rot and scale go into local transform matrix which is by default automatically updated
   //Projection Matrix only needs update after FOV changes
@@ -49248,10 +49254,10 @@ function init() {
     colorChange(colorTheme);
   });
   $(".projects__title").mouseleave(function () {
-    colorChange('#c6cbd8');
+    colorChange('#FFEBDB');
   });
   $(".projects__title").scroll(function () {
-    colorChange('#c6cbd8');
+    colorChange('#FFEBDB');
   });
 }
 
@@ -49421,7 +49427,7 @@ $(document).ready(function () {
     $('.nav-toggle').toggleClass('nav-toggle--entered');
   }); // $(".projects__title")
 });
-},{"./threeScript.js":"threeScript.js"}],"../../../../AppData/Roaming/npm-cache/_npx/15240/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./threeScript.js":"threeScript.js"}],"../../../../AppData/Roaming/npm-cache/_npx/10876/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -49449,7 +49455,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61409" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55600" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -49625,5 +49631,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../AppData/Roaming/npm-cache/_npx/15240/node_modules/parcel/src/builtins/hmr-runtime.js","app.js"], null)
+},{}]},{},["../../../../AppData/Roaming/npm-cache/_npx/10876/node_modules/parcel/src/builtins/hmr-runtime.js","app.js"], null)
 //# sourceMappingURL=/app.c328ef1a.js.map

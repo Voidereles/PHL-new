@@ -1,16 +1,56 @@
+@font-face {
+  font-family: 'HelveticaNowText';
+  src: url("/HelveticaNowText-Bold.d33ba852.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'HelveticaNowText';
+  src: url("/HelveticaNowText-Medium.5758ce01.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'HelveticaNowText';
+  src: url("/HelveticaNowText-Regular.1c8e73ba.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'HelveticaNowText';
+  src: url("/HelveticaNowText-Light.46c241d7.ttf") format("truetype");
+  font-weight: 300;
+}
+
 body {
   background: transparent;
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: Muli, Gotham, system-ui, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Ubuntu, Helvetica Neue, sans-serif;
+  font-family: HelveticaNowText, Gotham, system-ui, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Ubuntu, Helvetica Neue, sans-serif;
   font-weight: 400;
   font-synthesis: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(17, 19, 25, 0.705);
   border: 0;
   margin: 0;
   overflow-x: hidden;
   position: relative;
+}
+
+body span::-moz-selection,
+body p::-moz-selection,
+body div::-moz-selection,
+body a::-moz-selection {
+  background: black;
+  color: white;
+}
+
+body span::selection,
+body p::selection,
+body div::selection,
+body a::selection {
+  background: black;
+  color: white;
 }
 
 h1,
@@ -19,8 +59,27 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Poppins', sans-serif !important;
   font-weight: bold;
+}
+
+h1::-moz-selection,
+h2::-moz-selection,
+h3::-moz-selection,
+h4::-moz-selection,
+h5::-moz-selection,
+h6::-moz-selection {
+  background: black;
+  color: white;
+}
+
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection {
+  background: black;
+  color: white;
 }
 
 #loading-screen {
@@ -327,7 +386,7 @@ h6 {
 }
 
 .projects__heading {
-  font-size: 12px;
+  font-size: 1rem;
   letter-spacing: 4px;
   font-weight: 300;
   color: rgba(17, 19, 25, 0.705);
@@ -336,7 +395,6 @@ h6 {
   padding-bottom: 4rem;
   position: relative;
   font-weight: 400;
-  font-family: 'Muli', sans-serif;
 }
 
 .projects__heading::before {
@@ -395,7 +453,7 @@ h6 {
   z-index: 1;
   text-align: right;
   opacity: 0;
-  font-family: Heebo, Muli, Helvetica, Arial, sans-serif;
+  font-family: Heebo, HelveticaNowText, Muli, Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-style: normal;
   color: rgba(17, 19, 25, 0.705);
@@ -414,8 +472,15 @@ h6 {
   padding-bottom: 100px;
 }
 
+.about .row {
+  background: radial-gradient(#ffffff00, #ffffff1c);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  padding: 1rem 0;
+}
+
 .about__heading {
-  font-size: 12px;
+  font-size: 1rem;
   letter-spacing: 4px;
   font-weight: 300;
   color: rgba(17, 19, 25, 0.705);
@@ -423,7 +488,6 @@ h6 {
   padding-bottom: 4rem;
   position: relative;
   font-weight: 400;
-  font-family: 'Muli', sans-serif;
 }
 
 .about__heading::before {
@@ -557,7 +621,7 @@ h6 {
 }
 
 .refer__heading {
-  font-size: 12px;
+  font-size: 1rem;
   letter-spacing: 4px;
   font-weight: 300;
   color: rgba(17, 19, 25, 0.705);
@@ -566,7 +630,6 @@ h6 {
   padding-bottom: 1rem;
   position: relative;
   font-weight: 400;
-  font-family: 'Muli', sans-serif;
 }
 
 .refer__heading::before {
@@ -704,12 +767,15 @@ h6 {
   bottom: -50%;
   height: 50%;
   width: calc(100% + 144px);
-  background-color: #111319;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
   left: -144px;
+  display: none;
 }
 
 .jobs__heading {
-  font-size: 12px;
+  font-size: 1rem;
   letter-spacing: 4px;
   font-weight: 300;
   color: #111319;
@@ -717,7 +783,6 @@ h6 {
   padding-bottom: 4rem;
   position: relative;
   font-weight: 400;
-  font-family: 'Muli', sans-serif;
 }
 
 .jobs__heading::before {
@@ -746,7 +811,9 @@ h6 {
 .jobs__item {
   position: relative;
   padding: 40px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
   border: 1px solid #f0f0f0;
   border-radius: 0;
   -webkit-transition: all .5s ease;
@@ -767,6 +834,8 @@ h6 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   display: flex;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .jobs__item:hover, .jobs__item:focus, .jobs__item:active {
@@ -849,13 +918,17 @@ h6 {
 }
 
 .news {
-  background-color: #181b25;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
   margin-top: 5rem;
   position: relative;
   z-index: 2;
   color: #102a42;
   margin-right: -144px;
-  color: white;
+  color: rgba(17, 19, 25, 0.705);
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .news .owl-nav {
@@ -983,7 +1056,7 @@ h6 {
 }
 
 .news__btn:hover, .news__btn:focus, .news__btn:active {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
@@ -1016,16 +1089,21 @@ h6 {
   background-color: transparent;
   min-height: 50vh;
   position: relative;
+  padding-bottom: 3rem;
 }
 
 .contact__bottom-rectangle {
   position: absolute;
   top: -15%;
   z-index: 1;
-  height: 77.5%;
+  height: 115%;
   width: calc(100% + 288px);
-  background-color: #111319;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
   left: -144px;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .contact .row {
@@ -1044,12 +1122,15 @@ h6 {
   max-height: 600px;
   z-index: 1;
   left: -144px;
+  display: none;
   top: 45%;
 }
 
 .contact__form-container {
   padding: 40px;
-  background-color: #181b25;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
   -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
           box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -1074,19 +1155,23 @@ h6 {
 .contact__input, .contact__textarea {
   width: 100%;
   line-height: 16px;
-  padding: 0.75rem 0 0.5rem 0;
   display: block;
-  color: white;
+  color: rgba(17, 19, 25, 0.705);
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #102a42;
-  margin-bottom: 1rem;
+  margin: 0 -0.5rem 1rem 0;
+  padding: 0.75rem 0.5rem 0.5rem 0.5rem;
 }
 
 .contact__input:focus, .contact__textarea:focus {
   border-bottom: 1px solid #dd4242;
   outline: none;
-  background-color: #1a1d28;
+  background-color: #f2f2f2;
+}
+
+.contact__textarea {
+  height: 120px;
 }
 
 .contact__form-btn {
@@ -1096,13 +1181,13 @@ h6 {
   background-color: transparent;
   border: 1px solid #dd4242;
   border-radius: 100px;
-  color: white;
+  color: rgba(17, 19, 25, 0.705);
   -webkit-transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact__form-btn:hover, .contact__form-btn:active {
-  background-color: #c82424;
+  background: #dd4242;
   color: white;
   border: 1px solid #dd4242;
 }
@@ -1129,7 +1214,7 @@ h6 {
 }
 
 .contact__info-heading {
-  font-size: 12px;
+  font-size: 1rem;
   letter-spacing: 4px;
   font-weight: 300;
   color: rgba(17, 19, 25, 0.705);
@@ -1138,7 +1223,6 @@ h6 {
   padding-bottom: 1rem;
   position: relative;
   font-weight: 400;
-  font-family: 'Muli', sans-serif;
 }
 
 .contact__info-heading::before {
@@ -1153,6 +1237,7 @@ h6 {
 
 .contact__link {
   color: white;
+  color: rgba(17, 19, 25, 0.705);
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
@@ -1163,28 +1248,27 @@ h6 {
 }
 
 .contact__link:hover, .contact__link:focus, .contact__link:active {
-  color: white;
+  color: rgba(17, 19, 25, 0.705);
 }
 
 .contact__link:hover svg path, .contact__link:focus svg path, .contact__link:active svg path {
-  fill: white;
+  fill: rgba(17, 19, 25, 0.705);
 }
 
 .map {
   background-image: url("/map.20980a22.PNG");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 90vh;
+  height: 50vh;
   position: absolute;
   left: 0;
   z-index: 0;
   width: calc(100% + 288px);
-  bottom: -10rem;
+  top: 0;
   left: -144px;
 }
 
 .footer {
-  margin-top: 10rem;
   font-size: 0.7rem;
   background-color: black;
   color: grey;
@@ -1276,8 +1360,8 @@ h6 {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-backdrop-filter: blur(16px);
-            backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
     max-width: 100%;
     width: 100%;
     opacity: 0;
@@ -1347,6 +1431,11 @@ h6 {
     right: initial;
     position: initial;
   }
+  .about .row {
+    background: rgba(255, 255, 255, 0.8);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+  }
   .jobs {
     margin: initial;
     width: 100%;
@@ -1354,6 +1443,10 @@ h6 {
   }
   .jobs__container {
     padding-bottom: 60px;
+  }
+  .jobs .container-fluid {
+    margin: auto;
+    max-width: 100%;
   }
   .news {
     margin-right: 0;
@@ -1367,9 +1460,6 @@ h6 {
   .news .owl-carousel .owl-nav button.owl-prev,
   .news .owl-carousel button.owl-dot {
     opacity: 1;
-  }
-  .contact {
-    background: #111319;
   }
   .contact__info {
     min-height: 300px;

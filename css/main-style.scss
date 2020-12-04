@@ -245,17 +245,22 @@ h6 {
 
 
 .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0;
-    width: $space2XL;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: flex-start;
+    // padding: 0;
+    // width: $space2XL;
     position: fixed;
-    top: $space2XL;
-    left: $space2XL;
-    bottom: $space2XL;
+    // top: $space2XL;
+    // left: $space2XL;
+    // bottom: $space2XL;
     z-index: 1024;
+    width: 100%;
+    display: flex;
+    max-width: 1700px;
+    padding: 0 1rem;
+    top: 1rem;
 
     &__logo {
         display: flex;
@@ -335,25 +340,31 @@ h6 {
     }
 
     &__nav {
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: space-between;
+        // align-items: center;
+        // flex: 1 1 auto;
+        // max-width: $space2XL;
+        // position: relative;
+        // top: -16px;
+
+        width: calc(100% - 64px);
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         align-items: center;
-        flex: 1 1 auto;
-        max-width: $space2XL;
-        position: relative;
-        top: -16px;
+        justify-content: flex-end;
     }
 
     &__nav-list {
-        transform: rotate(-90deg) translate3d(-50%, 0, 0);
+        // transform: rotate(-90deg) translate3d(-50%, 0, 0);
         display: flex;
-        flex-direction: row-reverse;
+        // flex-direction: row-reverse;
     }
 
     &__nav-link {
         padding: $spaceM;
-        color: $rgbWhite08;
+        // color: $rgbWhite08;
+        color: $backgroundBlue07;
         font-weight: $fontWeightMedium;
         font-size: initial;
         text-decoration: none;
@@ -374,7 +385,7 @@ h6 {
 
     &__nav-icons {
         display: flex;
-        flex-direction: column;
+        // flex-direction: column;
         align-items: center;
         justify-content: center;
         position: relative;

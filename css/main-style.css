@@ -381,7 +381,6 @@ h6::selection {
 }
 
 .projects {
-  padding-top: calc(45vh - 50px);
   padding-bottom: calc(45vh - 85px);
 }
 

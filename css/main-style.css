@@ -540,7 +540,6 @@ h6 {
 
 .refer {
   position: relative;
-  background: #181b25;
   margin-left: -144px;
   margin-right: -144px;
   margin-top: 100px;
@@ -561,7 +560,7 @@ h6 {
   font-size: 12px;
   letter-spacing: 4px;
   font-weight: 300;
-  color: #c6cbd8;
+  color: rgba(17, 19, 25, 0.705);
   text-transform: uppercase;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -574,7 +573,7 @@ h6 {
   content: '';
   height: 2px;
   width: 50px;
-  background-color: #c6cbd8;
+  background-color: rgba(17, 19, 25, 0.705);
   display: inline-block;
   vertical-align: middle;
   margin-right: 1rem;
@@ -675,17 +674,24 @@ h6 {
 
 .jobs {
   position: relative;
-  background: #D0D0D1;
-  width: calc(100% + 144px * 2);
   min-height: 60vh;
   margin-left: -144px;
   margin-right: -144px;
+  margin-top: 100px;
+  width: calc(100% + 288px);
+}
+
+.jobs .container-fluid {
+  margin: 0 144px;
+  margin-top: -50px;
+  max-width: calc(100% - 288px);
 }
 
 .jobs__top-degree, .jobs__bottom-degree {
   width: calc(100% + 144px);
   margin-left: -144px;
   margin-top: -100px;
+  display: none;
 }
 
 .jobs__bottom-degree {
@@ -1241,6 +1247,9 @@ h6 {
   .header__logo {
     padding: 0;
   }
+  .header .dg .ac {
+    z-index: 9999;
+  }
   .header__nav {
     position: fixed;
     top: 0;
@@ -1411,5 +1420,9 @@ h6 {
     top: -70%;
     height: 130%;
   }
+}
+
+.dg.ac {
+  z-index: 9999 !important;
 }
 /*# sourceMappingURL=main-style.css.map */

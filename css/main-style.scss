@@ -640,7 +640,7 @@ h6 {
 
     // border-top-left-radius: 10%;
     // border-top-right-radius: 10%;
-    background: $rgbRaisinBlack;
+    // background: $rgbRaisinBlack;
     margin-left: -144px;
     margin-right: -144px;
     margin-top: 100px;
@@ -660,7 +660,7 @@ h6 {
         font-size: 12px;
         letter-spacing: 4px;
         font-weight: 300;
-        color: $lightPeriwinkle;
+        color: $backgroundBlue07;
         text-transform: uppercase;
         padding-top: 1rem;
         padding-bottom: 1rem;
@@ -672,7 +672,7 @@ h6 {
             content: '';
             height: 2px;
             width: 50px;
-            background-color: $lightPeriwinkle;
+            background-color: $backgroundBlue07;
             display: inline-block;
             vertical-align: middle;
             margin-right: 1rem;
@@ -786,11 +786,24 @@ h6 {
 
 .jobs {
     position: relative;
-    background: #D0D0D1;
-    width: calc(100% + 144px * 2);
+    // background: #D0D0D1;
+    // width: calc(100% + 144px * 2);
     min-height: 60vh;
-    margin-left: $leftMenuWidthMinus;
-    margin-right: $leftMenuWidthMinus;
+    // margin-left: $leftMenuWidthMinus;
+    // margin-right: $leftMenuWidthMinus;
+
+
+    margin-left: -144px;
+    margin-right: -144px;
+    margin-top: 100px;
+    width: calc(100% + 288px);
+
+    .container-fluid {
+
+        margin: 0 144px;
+        margin-top: -50px;
+        max-width: calc(100% - 288px);
+    }
 
     &__top-degree,
     &__bottom-degree {
@@ -798,6 +811,8 @@ h6 {
         width: calc(100% + 144px);
         margin-left: $leftMenuWidthMinus;
         margin-top: -100px;
+        display: none;
+        //changes
     }
 
     &__bottom-degree {
@@ -1366,6 +1381,11 @@ h6 {
             padding: 0;
         }
 
+
+        .dg .ac {
+            z-index: 9999;
+        }
+
         &__nav {
             position: fixed;
             top: 0;
@@ -1557,4 +1577,8 @@ h6 {
             height: 130%;
         }
     }
+}
+
+.dg.ac {
+    z-index: 9999 !important;
 }

@@ -48808,6 +48808,8 @@ var mouseX = 0;
 var mouseY = 0;
 var mouseXpercent = 0;
 var mouseYpercent = 0;
+var referOffset = document.querySelector('.refer').offsetTop;
+var jobsOffset = document.querySelector('.jobs').offsetTop;
 var onMouseMoveLogoRotation = true;
 var getColorHex;
 var clock = new THREE.Clock();
@@ -48830,71 +48832,58 @@ var colorChange = function colorChange(getColorTheme) {
 
 };
 
-var DecreaseLogoSize = function DecreaseLogoSize() {
-  _gsap.default.to(camera.position, {
-    duration: 4.2,
-    x: 2.3,
-    y: 4.2,
-    z: 8.2,
-    onUpdate: function onUpdate() {
-      update();
-    }
-  });
-
-  _gsap.default.to(controls.target, {
-    duration: 4.2,
-    x: -0.6,
-    y: 0.1,
-    z: 1.8,
-    onUpdate: function onUpdate() {
-      controls.update();
-    }
-  }); // if (window.innerWidth <= 768) {
-  //     gsap.to(camera.position, {
-  //         duration: 4.2,
-  //         x: 2.3,
-  //         y: 12,
-  //         z: 2,
-  //         onUpdate: function () {
-  //             update();
-  //         }
-  //     })
-  //     gsap.to(controls.target, {
-  //         duration: 4.2,
-  //         x: -0.6,
-  //         y: 3,
-  //         z: -0.3,
-  //         onUpdate: function () {
-  //             controls.update();
-  //         }
-  //     });
-  // }
-
-};
-
 var FarAwayLogo = function FarAwayLogo() {
   _gsap.default.to(camera, {
-    duration: 3.2,
+    duration: 4,
     onUpdate: function onUpdate() {
       camera.updateProjectionMatrix();
     }
   });
 
   _gsap.default.to(camera.position, {
-    duration: 3.2,
-    x: 85,
-    y: 357,
-    z: 91,
+    duration: 4,
+    x: -3.3,
+    y: 20.5,
+    z: 18.4,
     onUpdate: function onUpdate() {
       update();
     }
   });
 
   _gsap.default.to(controls.target, {
-    duration: 3.2,
-    x: 85,
-    y: -664,
-    z: -143,
+    duration: 4,
+    x: -20.7,
+    y: -100,
+    z: -33.7,
+    onUpdate: function onUpdate() {
+      controls.update();
+    }
+  });
+};
+
+var JobsLogo = function JobsLogo() {
+  _gsap.default.to(camera, {
+    duration: 4,
+    onUpdate: function onUpdate() {
+      camera.updateProjectionMatrix();
+    }
+  });
+
+  _gsap.default.to(camera.position, {
+    duration: 4,
+    x: -12,
+    y: 22.7,
+    z: 18.4,
+    onUpdate: function onUpdate() {
+      update();
+    }
+  });
+
+  _gsap.default.to(controls.target, {
+    duration: 4,
+    x: -12,
+    y: -77,
+    z: -36,
     onUpdate: function onUpdate() {
       controls.update();
     }
@@ -48903,7 +48892,7 @@ var FarAwayLogo = function FarAwayLogo() {
 
 var IncreaseLogoSize = function IncreaseLogoSize() {
   _gsap.default.to(camera.position, {
-    duration: 4.2,
+    duration: 4,
     x: 2.2,
     y: 7,
     z: 2,
@@ -48913,7 +48902,7 @@ var IncreaseLogoSize = function IncreaseLogoSize() {
   });
 
   _gsap.default.to(controls.target, {
-    duration: 3.2,
+    duration: 4,
     x: 2.2,
     y: 4,
     z: 1,
@@ -48921,6 +48910,48 @@ var IncreaseLogoSize = function IncreaseLogoSize() {
       controls.update();
     }
   });
+};
+
+var DecreaseLogoSize = function DecreaseLogoSize() {
+  _gsap.default.to(camera.position, {
+    duration: 4,
+    x: 2.3,
+    y: 4.2,
+    z: 8.2,
+    onUpdate: function onUpdate() {
+      update();
+    }
+  });
+
+  _gsap.default.to(controls.target, {
+    duration: 4,
+    x: -0.6,
+    y: 0.1,
+    z: 1.8,
+    onUpdate: function onUpdate() {
+      controls.update();
+    }
+  }); // if (window.innerWidth <= 768) {
+  //     gsap.to(camera.position, {
+  //         duration: 4,
+  //         x: 2.3,
+  //         y: 12,
+  //         z: 2,
+  //         onUpdate: function () {
+  //             update();
+  //         }
+  //     })
+  //     gsap.to(controls.target, {
+  //         duration: 4,
+  //         x: -0.6,
+  //         y: 3,
+  //         z: -0.3,
+  //         onUpdate: function () {
+  //             controls.update();
+  //         }
+  //     });
+  // }
+
 };
 
 var LeftLogoPosition = function LeftLogoPosition() {
@@ -49018,8 +49049,8 @@ function init() {
 
   mesh.receiveShadow = true;
   scene.add(mesh);
-  var grid = new THREE.GridHelper(400, 22, 0x000000, 0x000000);
-  grid.material.opacity = 0.75;
+  var grid = new THREE.GridHelper(700, 308, 0x000000, 0x000000);
+  grid.material.opacity = 0.5;
   grid.material.transparent = true;
   scene.add(grid); // model
 
@@ -49099,18 +49130,26 @@ function init() {
     if (window.pageYOffset < window.innerHeight / 3) {
       IncreaseLogoSize();
       console.log("increase no scroll");
-    } else if (window.pageYOffset >= window.innerHeight / 3) {
+    } else if (window.pageYOffset >= window.innerHeight / 3 & referOffset >= window.pageYOffset) {
       DecreaseLogoSize();
-      console.log('decrease no scroll');
+      console.log('decrease scroll');
+    } else if (referOffset < window.pageYOffset && jobsOffset + 400 >= window.pageYOffset) {
+      FarAwayLogo();
+    } else if (jobsOffset + 400 < window.pageYOffset) {
+      JobsLogo();
     }
   });
   $(window).on('scroll', function () {
     if (window.pageYOffset < window.innerHeight / 3) {
       IncreaseLogoSize();
       console.log('increase scroll');
-    } else if (window.pageYOffset >= window.innerHeight / 3) {
+    } else if (window.pageYOffset >= window.innerHeight / 3 & referOffset >= window.pageYOffset) {
       DecreaseLogoSize();
       console.log('decrease scroll');
+    } else if (referOffset < window.pageYOffset && jobsOffset + 600 >= window.pageYOffset) {
+      FarAwayLogo();
+    } else if (jobsOffset + 600 < window.pageYOffset) {
+      JobsLogo();
     }
   });
   var gui = new _dat.GUI();
@@ -49193,13 +49232,13 @@ function init() {
   gui.add(buttonToggleMouseMove, "add").name('tgl rot&contr');
   gui.add(scene.fog, 'near', 1, 1500).name('fog.near');
   gui.add(scene.fog, 'far', 1, 1500).name('fog.far');
-  gui.add(camera.position, 'x', -11, 11, 0.1).name('cameraPosition x');
-  gui.add(camera.position, 'y', -11, 11, 0.1).name('cameraPosition y');
-  gui.add(camera.position, 'z', -11, 11, 0.1).name('cameraPosition z');
+  gui.add(camera.position, 'x', -100, 100, 0.1).name('cameraPosition x');
+  gui.add(camera.position, 'y', -100, 100, 0.1).name('cameraPosition y');
+  gui.add(camera.position, 'z', -100, 100, 0.1).name('cameraPosition z');
   gui.add(camera, 'fov', 1, 120).onChange(camera.updateProjectionMatrix());
-  gui.add(controls.target, 'x', -11, 11, 0.1).name('controlsTarget x');
-  gui.add(controls.target, 'y', -11, 11, 0.1).name('controlsTarget y');
-  gui.add(controls.target, 'z', -11, 11, 0.1).name('controlsTarget z');
+  gui.add(controls.target, 'x', -100, 100, 0.1).name('controlsTarget x');
+  gui.add(controls.target, 'y', -100, 100, 0.1).name('controlsTarget y');
+  gui.add(controls.target, 'z', -100, 100, 0.1).name('controlsTarget z');
   gui.closed = true;
   var colorTheme; //pos rot and scale go into local transform matrix which is by default automatically updated
   //Projection Matrix only needs update after FOV changes
@@ -49209,10 +49248,10 @@ function init() {
     colorChange(colorTheme);
   });
   $(".projects__title").mouseleave(function () {
-    colorChange('#111319');
+    colorChange('#c6cbd8');
   });
   $(".projects__title").scroll(function () {
-    colorChange('#111319');
+    colorChange('#c6cbd8');
   });
 }
 
@@ -49234,14 +49273,15 @@ function update() {
 }
 
 function animate() {
-  if (window.pageYOffset < window.innerHeight / 3) {
-    IncreaseLogoSize();
-    console.log('increase scroll');
-  } else if (window.pageYOffset >= window.innerHeight / 3) {
-    DecreaseLogoSize();
-    console.log('decrease scroll');
-  }
-
+  // if (window.pageYOffset < window.innerHeight / 3) {
+  //     IncreaseLogoSize();
+  //     console.log('increase scroll')
+  // } else if (window.pageYOffset >= window.innerHeight / 3 & referOffset >= window.pageYOffset) {
+  //     DecreaseLogoSize();
+  //     console.log('decrease scroll');
+  // } else if (referOffset < window.pageYOffset) {
+  //     FarAwayLogo();
+  // }
   update(); // targetCamera.x += (-mouseXpercent * 15 - targetCamera.x) / 10;
 
   if (window.innerWidth > 768) {

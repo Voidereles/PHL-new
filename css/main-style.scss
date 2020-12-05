@@ -23,18 +23,12 @@
 }
 
 $rgbDarkest: rgb(17, 17, 17);
-$rgbBackground05: rgba(17, 17, 17, 0.5);
 $rgbDark: rgb(48, 48, 48);
-$rgbBackgroundBlue: #111319;
-$rgbDarkBlue: #102a42;
-$rgbRaisinBlack: #181b25;
 $rgbCadetBlue: #a9afc3;
-$rgbRoseMadder: #dd4242;
 $rgbWhite08: rgba(255, 255, 255, 0.8);
 
 
 $lightPeriwinkle:#c6cbd8;
-$backgroundBlue07: rgba(17, 19, 25, 0.705);
 
 $bezierFastoutSlowin: cubic-bezier(0.4, 0.0, 0.2, 1);
 $durationXS: 200ms;
@@ -106,7 +100,7 @@ body {
     font-family: $fontStack;
     font-weight: $fontWeightRegular;
     font-synthesis: none;
-    color: $backgroundBlue07;
+    color: black;
     border: 0;
     margin: 0;
     overflow-x: hidden;
@@ -121,6 +115,10 @@ body {
             color: white;
         }
     }
+}
+
+section {
+    // content-visibility: auto;
 }
 
 h1,
@@ -232,11 +230,13 @@ h6 {
         left: 0;
         width: 100%;
         z-index: -1;
+        content-visibility: visible;
 
         canvas {
             outline: none;
             border: none;
             max-width: 100%;
+            content-visibility: visible;
 
             &:focus {
                 outline: none;
@@ -258,6 +258,12 @@ h6 {
     display: flex;
     top: 1rem;
 
+    .container-fluid {
+        background: black;
+        border-radius: 10px;
+    }
+
+
     &__logo {
         display: flex;
         position: relative;
@@ -267,16 +273,11 @@ h6 {
         cursor: pointer;
 
         &:hover {
-            transform: scale(1.1);
-
-
-            svg path {
-                fill: $rgbRoseMadder;
-            }
+            transform: scale(1.2);
         }
 
         &:active {
-            transform: scale(0.9);
+            transform: scale(1);
         }
 
         svg {
@@ -287,8 +288,8 @@ h6 {
 
     .nav-toggle {
         position: fixed;
-        top: $space2XL;
-        right: $spaceXL;
+        top: 1rem;
+        right: 2.5rem;
         z-index: 1024;
         display: none;
         background: none;
@@ -304,8 +305,13 @@ h6 {
             top: 50%;
             left: 50%;
             position: absolute;
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
+
+            path {
+                fill: white;
+                transition: $bezierFastoutSlowin 0.5s;
+            }
         }
 
         &__inner {
@@ -343,22 +349,28 @@ h6 {
 
     &__nav-link {
         padding: $spaceM;
-        color: $backgroundBlue07;
+        color: white;
         font-weight: $fontWeightMedium;
         font-size: initial;
         text-decoration: none;
         position: relative;
         transition: color $durationS ease .1s;
         line-height: 1;
+        padding: $spaceS;
+        margin: $spaceS;
+        border-radius: $spaceXS;
+        transition: $bezierFastoutSlowin 0.36s;
 
         &:active,
         &:hover {
-            color: $rgbRoseMadder;
             text-decoration: none;
+            background-color: white;
+            color: black;
         }
 
         &.active {
-            color: $rgbRoseMadder;
+            background-color: white;
+            color: black;
         }
     }
 
@@ -368,6 +380,10 @@ h6 {
         justify-content: center;
         position: relative;
         z-index: 16;
+
+        svg path {
+            fill: white;
+        }
     }
 
     &__nav-icon-link {
@@ -378,18 +394,30 @@ h6 {
         padding: $spaceS;
         width: $space2XL;
         height: $space2XL;
-        color: $rgbRoseMadder;
-        transition: color $durationM $bezierFastoutSlowin;
+        color: white;
+        transition: $durationM $bezierFastoutSlowin;
 
         &:hover {
             svg {
-                fill: $rgbRoseMadder;
+                transform: scale(1.2);
+            }
+        }
+
+        &:active {
+            svg {
+                transform: scale(1);
             }
         }
 
         svg {
-            fill: white;
-            transition: fill $durationM ease;
+            padding: 1px;
+            border: 1px solid black;
+            transition: $durationM ease;
+
+            path {
+                fill: white;
+                transition: fill $durationM ease;
+            }
         }
     }
 
@@ -410,10 +438,10 @@ h6 {
 
     &__heading {
         font-size: 1rem;
-        letter-spacing: 4px;
+        letter-spacing: $spaceXS;
         font-weight: 300;
-        color: $backgroundBlue07;
-        color: $backgroundBlue07;
+        color: black;
+        color: black;
         text-transform: uppercase;
         padding-bottom: 4rem;
         position: relative;
@@ -423,7 +451,7 @@ h6 {
             content: '';
             height: 2px;
             width: 50px;
-            background-color: $backgroundBlue07;
+            background-color: black;
             display: inline-block;
             vertical-align: middle;
             margin-right: 1rem;
@@ -434,7 +462,7 @@ h6 {
         position: relative;
         height: 140px;
         width: 100%;
-        color: $backgroundBlue07;
+        color: black;
         font-size: 5.7rem;
         line-height: 66px;
         font-weight: 300;
@@ -480,29 +508,32 @@ h6 {
         font-family: Heebo, HelveticaNowText, Muli, Helvetica, Arial, sans-serif;
         font-weight: 300;
         font-style: normal;
-        color: $backgroundBlue07;
+        color: black;
         font-size: 1.45rem;
         line-height: 30px;
         transition: .6s cubic-bezier(.165, .84, .44, 1);
+        background: white;
+        border-radius: 10px;
+        padding: 1rem;
     }
 }
 
 
 .about {
     width: 100%;
-    padding-bottom: 100px;
 
     .row {
         background: radial-gradient(#ffffff00, #ffffff1c);
         backdrop-filter: blur(1px);
         padding: 1rem 0;
+        border-radius: 12px;
     }
 
     &__heading {
         font-size: 1rem;
-        letter-spacing: 4px;
+        letter-spacing: $spaceXS;
         font-weight: 300;
-        color: $backgroundBlue07;
+        color: black;
         text-transform: uppercase;
         padding-bottom: 4rem;
         position: relative;
@@ -512,7 +543,7 @@ h6 {
             content: '';
             height: 2px;
             width: 50px;
-            background-color: $backgroundBlue07;
+            background-color: black;
             display: inline-block;
             vertical-align: middle;
             margin-right: 1rem;
@@ -537,15 +568,19 @@ h6 {
         text-rendering: optimizelegibility !important;
         letter-spacing: .03rem;
         font-weight: 300;
-        color: $backgroundBlue07;
+        color: black;
         margin-bottom: $spaceL;
     }
 
     &__read-more {
-        color: $rgbRoseMadder;
+        color: black;
         transition: $bezierFastoutSlowin 0.3s;
         display: inline-block;
         position: relative;
+        background: white;
+        border-radius: 8px;
+        padding: 12px;
+        font-weight: 500;
 
         &:hover,
         &:focus,
@@ -561,7 +596,7 @@ h6 {
             right: $spaceS;
             left: $spaceS;
             height: 2px;
-            background: $rgbRoseMadder;
+            background: black;
             transform: scaleX(0) translateY(-2px);
             transition: transform $durationM $bezierFastoutSlowin;
             transform-origin: right;
@@ -598,14 +633,14 @@ h6 {
 
 .refer {
     position: relative;
-    margin-top: 100px;
     z-index: 3;
+    margin-top: 5rem;
 
     &__heading {
         font-size: 1rem;
-        letter-spacing: 4px;
+        letter-spacing: $spaceXS;
         font-weight: 300;
-        color: $backgroundBlue07;
+        color: black;
         text-transform: uppercase;
         padding-top: 1rem;
         padding-bottom: 1rem;
@@ -616,7 +651,7 @@ h6 {
             content: '';
             height: 2px;
             width: 50px;
-            background-color: $backgroundBlue07;
+            background-color: black;
             display: inline-block;
             vertical-align: middle;
             margin-right: 1rem;
@@ -627,7 +662,7 @@ h6 {
 
 
     &__carousel {
-        margin-top: 4rem;
+        // margin-top: 4rem;
     }
 
     &__company {
@@ -701,9 +736,11 @@ h6 {
     .owl-dot {
         width: 16px;
         height: 16px;
-        background-color: $rgbDarkBlue !important;
+        background-color: black !important;
         border-radius: 50%;
+        border: 4px solidblack;
         margin: 0 0.5rem;
+        transition: 0.36s ease;
 
         &:focus {
             outline-color: transparent !important;
@@ -715,7 +752,9 @@ h6 {
         }
 
         &.active {
-            background-color: $rgbRoseMadder !important;
+            border: 4px solidblack;
+            background-color: white !important;
+
         }
     }
 
@@ -724,13 +763,13 @@ h6 {
 .jobs {
     position: relative;
     min-height: 60vh;
-    margin-top: 100px;
+    margin-top: 5rem;
 
     &__heading {
         font-size: 1rem;
-        letter-spacing: 4px;
+        letter-spacing: $spaceXS;
         font-weight: 300;
-        color: $rgbBackgroundBlue;
+        color: black;
         text-transform: uppercase;
         padding-bottom: 4rem;
         position: relative;
@@ -740,7 +779,7 @@ h6 {
             content: '';
             height: 2px;
             width: 50px;
-            background: $rgbBackgroundBlue;
+            background: black;
             display: inline-block;
             vertical-align: middle;
             margin-right: 1rem;
@@ -748,7 +787,7 @@ h6 {
     }
 
     &__container {
-        padding-bottom: 7rem;
+        // padding-bottom: 7rem;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
         grid-gap: 20px;
@@ -773,21 +812,22 @@ h6 {
         justify-content: space-between;
         display: flex;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
 
         &:hover,
         &:focus,
         &:active {
-            color: $rgbDarkBlue;
+            color: black;
             text-decoration: none;
         }
 
         &:hover {
-            border: 1px solid $rgbDarkBlue;
+            border: 1px solid black;
             transform: scale(1.08);
             box-shadow: 0 36px 64px 0 rgba(0, 0, 0, .1);
 
             .jobs__check {
-                background-color: $rgbDarkBlue;
+                background-color: black;
 
                 &-text {
                     color: white;
@@ -800,7 +840,7 @@ h6 {
     &__job-title {
         font-size: $fontSizeBodyL;
         font-weight: $fontWeightBold;
-        color: $rgbDarkBlue;
+        color: black;
         margin-bottom: 0;
     }
 
@@ -820,7 +860,7 @@ h6 {
 
     &__check {
         border-radius: 50%;
-        border: 1px solid $rgbDarkBlue;
+        border: 1px solid black;
         display: flex;
         display: inline-block;
         width: 40px;
@@ -842,7 +882,7 @@ h6 {
             transform: translateY(-45%);
             transition: 0.5s ease;
             opacity: 0;
-            color: $rgbDarkBlue;
+            color: black;
             width: 100%;
             left: 0;
             text-align: center;
@@ -855,13 +895,15 @@ h6 {
 .news {
     background-color: $rgbWhite08;
     backdrop-filter: blur($spaceS);
-    margin-top: 5rem;
+    margin-top: 6rem;
     position: relative;
     z-index: 2;
-    color: $rgbDarkBlue;
+    color: black;
     margin-right: $leftMenuWidthMinus;
-    color: $backgroundBlue07;
+    color: black;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 
     .owl-nav {
         margin-left: -24px;
@@ -928,7 +970,7 @@ h6 {
 
         &::after {
             content: '';
-            background-color: lighten($color: $rgbRaisinBlack, $amount:5%);
+            background-color: lighten($color: black, $amount:5%);
             height: 90%;
             right: -13px;
             width: 2px;
@@ -968,7 +1010,7 @@ h6 {
     }
 
     &__btn {
-        color: $rgbRoseMadder;
+        color: black;
         transition: $bezierFastoutSlowin 0.3s;
         display: inline-block;
         position: absolute;
@@ -990,7 +1032,7 @@ h6 {
             right: $spaceS;
             left: $spaceS;
             height: 2px;
-            background: $rgbRoseMadder;
+            background: black;
             transform: scaleX(0) translateY(-2px);
             transition: transform $durationM $bezierFastoutSlowin;
             transform-origin: right;
@@ -1007,7 +1049,7 @@ h6 {
     background-color: transparent;
     min-height: 50vh;
     position: relative;
-    padding-bottom: 3rem;
+    padding-bottom: calc(3rem + 36px);
 
     &__bottom-rectangle {
         position: absolute;
@@ -1019,6 +1061,7 @@ h6 {
         backdrop-filter: blur($spaceS);
         left: $leftMenuWidthMinus;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-top-left-radius: 36px;
     }
 
     .row {
@@ -1028,6 +1071,7 @@ h6 {
     &__container {
         width: 50%;
         display: inline-block;
+        margin-top: 6rem;
     }
 
     &__form-container {
@@ -1039,8 +1083,10 @@ h6 {
         min-height: 200px;
         max-width: 540px;
         margin-left: auto;
-        margin-top: 5rem;
+        margin-top: 1rem;
+
         transition: 0.3s;
+        border-radius: 10px;
     }
 
     &__fieldset {
@@ -1053,15 +1099,15 @@ h6 {
         width: 100%;
         line-height: 16px;
         display: block;
-        color: $backgroundBlue07;
+        color: black;
         background-color: transparent;
         border: none;
-        border-bottom: 1px solid $rgbDarkBlue;
+        border-bottom: 1px solid black;
         margin: 0 -0.5rem 1rem 0;
         padding: 0.75rem 0.5rem 0.5rem 0.5rem;
+        border-radius: 4px;
 
         &:focus {
-            border-bottom: 1px solid $rgbRoseMadder;
             outline: none;
             background-color: darken($color: white, $amount: 5%)
         }
@@ -1077,16 +1123,15 @@ h6 {
         display: inline-block;
         padding: 0.75rem 2rem;
         background-color: transparent;
-        border: 1px solid $rgbRoseMadder;
+        border: 1px solidblack;
         border-radius: 100px;
-        color: $backgroundBlue07;
+        color: black;
         transition: 0.5s $bezierFastoutSlowin;
 
         &:hover,
         &:active {
-            background: $rgbRoseMadder;
+            background: black;
             color: white;
-            border: 1px solid $rgbRoseMadder;
         }
 
         &:active {
@@ -1104,16 +1149,16 @@ h6 {
 
     &__info {
         padding: 1rem;
-        margin-top: 5rem;
+        // margin-top: 5rem;
         margin-right: auto;
         max-width: 540px;
     }
 
     &__info-heading {
         font-size: 1rem;
-        letter-spacing: 4px;
+        letter-spacing: $spaceXS;
         font-weight: 300;
-        color: $backgroundBlue07;
+        color: black;
         text-transform: uppercase;
         padding-top: 1rem;
         padding-bottom: 1rem;
@@ -1124,7 +1169,7 @@ h6 {
             content: '';
             height: 2px;
             width: 50px;
-            background-color: $backgroundBlue07;
+            background-color: black;
             display: inline-block;
             vertical-align: middle;
             margin-right: 1rem;
@@ -1135,20 +1180,30 @@ h6 {
 
     &__link {
         color: white;
-        color: $backgroundBlue07;
+        color: black;
         transition: 0.3s ease;
 
         svg path {
             transition: 0.3s ease;
+            fill: black;
+        }
+
+        svg {
+            transition: 0.36s ease;
+            transform: scale(1);
         }
 
         &:hover,
         &:focus,
         &:active {
-            color: $backgroundBlue07;
+            color: black;
+
+            svg {
+                transform: scale(1.2);
+            }
 
             svg path {
-                fill: $backgroundBlue07;
+                fill: black;
             }
         }
     }
@@ -1163,6 +1218,10 @@ h6 {
     position: relative;
     bottom: 0;
     left: 0;
+    margin-top: -36px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    z-index: 10000;
 
     &__container {
         margin-left: $leftMenuWidth;
@@ -1173,28 +1232,32 @@ h6 {
     &__href {
         color: white;
         transition: 0.3s;
+        padding: 0.50rem;
+        border-radius: 4px;
+        transition: 0.36s ease;
 
         &:hover {
-            color: $rgbRoseMadder;
+            color: black;
+            background: white;
         }
     }
 }
 
 
 .modal {
-    color: $rgbDarkBlue;
+    color: black;
 
     .btn-secondary {
         background: $rgbDark;
     }
 
     .btn-primary {
-        background: $rgbDarkBlue;
+        background: black;
     }
 }
 
 .modal-header {
-    color: $rgbDarkBlue;
+    color: black;
 }
 
 @media (min-width: 1800px) {
@@ -1206,8 +1269,9 @@ h6 {
 @media (max-width: 768px) {
     .header {
         bottom: initial;
-        top: $space2XL;
-        left: $spaceXL;
+        top: 1rem;
+        left: 1rem;
+        width: calc(100% - 2rem);
         padding: 0;
 
         &__logo {
@@ -1225,7 +1289,7 @@ h6 {
             right: 0;
             bottom: 0;
             left: 0;
-            background: $rgbWhite08;
+            background: rgba(0, 0, 0, 0.8);
             transform: translate3d(0, -100%, 0);
             transition-duration: $durationL;
             transition-timing-function: $bezierFastoutSlowin;
@@ -1233,7 +1297,7 @@ h6 {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur($spaceS);
+            backdrop-filter: blur($spaceXS);
             max-width: 100%;
             width: 100%;
             opacity: 0;
@@ -1256,7 +1320,7 @@ h6 {
             width: 100%;
             display: block;
             font-size: $fontSizeBodyL;
-            padding: $spaceL;
+            padding: 16px;
             text-align: center;
         }
 
@@ -1307,6 +1371,7 @@ h6 {
             height: initial;
             right: initial;
             position: initial;
+            background: transparent;
         }
     }
 
@@ -1333,6 +1398,7 @@ h6 {
     .news {
         margin-right: 0;
         margin-top: 5vh;
+        border-radius: none;
 
         .owl-nav {
             height: 30%;

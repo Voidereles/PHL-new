@@ -4,7 +4,9 @@
 <head>
     <title>PHL Group</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=6.0">
+    <meta name="Description"
+        content="PHL Group is a Lorem Ipsum Dolor Sit Amet a Lorem Ipsum Dolor Sit Ameta Lorem Ipsum Dolor Sit Amet">
 
     <link rel="shortcut icon" href="./images-icons/SVG/logo-small-white.svg" type="image/x-icon">
 
@@ -29,7 +31,7 @@
                     <defs>
                         <style>
                             .cls-1 {
-                                fill: #000000;
+                                fill: white;
                             }
                         </style>
                     </defs>
@@ -147,7 +149,7 @@
                 </div>
             </div>
         </section>
-        <div class="container-fluid mb-5">
+        <div class="container-fluid">
             <section class="about">
                 <div class="row">
 
@@ -337,7 +339,7 @@
         <section id="careers" class="jobs scrollspy">
 
             <div class="container-fluid">
-                <h5 class="jobs__heading">STELLENANGEBOTE</h5>
+                <h3 class="jobs__heading">STELLENANGEBOTE</h3>
             </div>
             <div class="container-fluid jobs__container">
                 <a href="#" class="jobs__item" data-toggle="modal" data-target=".modal">
@@ -471,7 +473,7 @@
         <section id="contact" class="contact scrollspy">
             <div class="contact__bottom-rectangle"></div>
 
-            <div class="row position-relative mt-5 contact__container">
+            <div class="row position-relative contact__container">
                 <div class="col-12">
                     <div id="contactForm" class="contact__form-container">
                         <div class="col-12 d-lg-none">
@@ -480,14 +482,13 @@
 
 
                         <form id="contact-form" action="" method="post">
-                            <input type="hidden" name="_csrf-frontend"
-                                value="WpWo5-AaRnR4qdth1A66f9od4w98OtJM6xs2fvYUUbIq1-y3slMeRCjo6gWbTdJNji6JVT5KjQvSTGxTwyEI3g==">
+
                             <fieldset class="contact__fieldset wow fadeInUp">
                                 <div class="form-group field-contactform-name required">
 
-                                    <input type="text" id="contactform-name" class="contact__input"
-                                        name="ContactForm[name]" placeholder="Vor- und Nachname/Firmenname"
-                                        aria-required="true">
+                                    <input aria-label="Contact Form Name" type="text" id="contactform-name"
+                                        class="contact__input" name="ContactForm[name]"
+                                        placeholder="Vor- und Nachname/Firmenname" aria-required="true">
 
                                     <div class="invalid-feedback"></div>
                                 </div>
@@ -496,8 +497,9 @@
                             <fieldset class="contact__fieldset wow fadeInUp" data-wow-delay="0.6s">
                                 <div class="form-group field-contactform-email required">
 
-                                    <input type="text" id="contactform-email" class="contact__input"
-                                        name="ContactForm[email]" placeholder="E-Mail-Adresse" aria-required="true">
+                                    <input aria-label="Contact Form Email" type="text" id="contactform-email"
+                                        class="contact__input" name="ContactForm[email]" placeholder="E-Mail-Adresse"
+                                        aria-required="true">
 
                                     <div class="invalid-feedback"></div>
                                 </div>
@@ -507,9 +509,9 @@
                                 data-wow-offset="-30">
                                 <div class="form-group field-contactform-body required">
 
-                                    <textarea id="contactform-body" class="contact__textarea" name="ContactForm[body]"
-                                        rows="10" cols="30" placeholder="Inhalt der Nachricht"
-                                        aria-required="true"></textarea>
+                                    <textarea aria-label="Contact Form Message" id="contactform-body"
+                                        class="contact__textarea" name="ContactForm[body]" rows="10" cols="30"
+                                        placeholder="Inhalt der Nachricht" aria-required="true"></textarea>
 
                                     <div class="invalid-feedback"></div>
                                 </div>

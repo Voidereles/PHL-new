@@ -30,7 +30,7 @@ body {
   font-family: HelveticaNowText, Gotham, system-ui, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Ubuntu, Helvetica Neue, sans-serif;
   font-weight: 400;
   font-synthesis: none;
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
   border: 0;
   margin: 0;
   overflow-x: hidden;
@@ -170,12 +170,14 @@ h6::selection {
   left: 0;
   width: 100%;
   z-index: -1;
+  content-visibility: visible;
 }
 
 .threeJS__container canvas {
   outline: none;
   border: none;
   max-width: 100%;
+  content-visibility: visible;
 }
 
 .threeJS__container canvas:focus {
@@ -198,6 +200,11 @@ h6::selection {
   top: 1rem;
 }
 
+.header .container-fluid {
+  background: black;
+  border-radius: 10px;
+}
+
 .header__logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -211,17 +218,13 @@ h6::selection {
 }
 
 .header__logo:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-.header__logo:hover svg path {
-  fill: #dd4242;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .header__logo:active {
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .header__logo svg {
@@ -231,8 +234,8 @@ h6::selection {
 
 .header .nav-toggle {
   position: fixed;
-  top: 48px;
-  right: 32px;
+  top: 1rem;
+  right: 2.5rem;
   z-index: 1024;
   display: none;
   background: none;
@@ -252,8 +255,14 @@ h6::selection {
   top: 50%;
   left: 50%;
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
+}
+
+.header .nav-toggle svg path {
+  fill: white;
+  -webkit-transition: cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
 }
 
 .header .nav-toggle__inner {
@@ -303,7 +312,7 @@ h6::selection {
 
 .header__nav-link {
   padding: 16px;
-  color: rgba(17, 19, 25, 0.705);
+  color: white;
   font-weight: 500;
   font-size: initial;
   text-decoration: none;
@@ -311,15 +320,22 @@ h6::selection {
   -webkit-transition: color 300ms ease 0.1s;
   transition: color 300ms ease 0.1s;
   line-height: 1;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 4px;
+  -webkit-transition: cubic-bezier(0.4, 0, 0.2, 1) 0.36s;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 0.36s;
 }
 
 .header__nav-link:active, .header__nav-link:hover {
-  color: #dd4242;
   text-decoration: none;
+  background-color: white;
+  color: black;
 }
 
 .header__nav-link.active {
-  color: #dd4242;
+  background-color: white;
+  color: black;
 }
 
 .header__nav-icons {
@@ -336,6 +352,10 @@ h6::selection {
   z-index: 16;
 }
 
+.header__nav-icons svg path {
+  fill: white;
+}
+
 .header__nav-icon-link {
   cursor: pointer;
   display: -webkit-box;
@@ -350,16 +370,29 @@ h6::selection {
   padding: 8px;
   width: 48px;
   height: 48px;
-  color: #dd4242;
-  -webkit-transition: color 400ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
+  -webkit-transition: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header__nav-icon-link:hover svg {
-  fill: #dd4242;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.header__nav-icon-link:active svg {
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .header__nav-icon-link svg {
+  padding: 1px;
+  border: 1px solid black;
+  -webkit-transition: 400ms ease;
+  transition: 400ms ease;
+}
+
+.header__nav-icon-link svg path {
   fill: white;
   -webkit-transition: fill 400ms ease;
   transition: fill 400ms ease;
@@ -382,8 +415,8 @@ h6::selection {
   font-size: 1rem;
   letter-spacing: 4px;
   font-weight: 300;
-  color: rgba(17, 19, 25, 0.705);
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
+  color: black;
   text-transform: uppercase;
   padding-bottom: 4rem;
   position: relative;
@@ -394,7 +427,7 @@ h6::selection {
   content: '';
   height: 2px;
   width: 50px;
-  background-color: rgba(17, 19, 25, 0.705);
+  background-color: black;
   display: inline-block;
   vertical-align: middle;
   margin-right: 1rem;
@@ -404,7 +437,7 @@ h6::selection {
   position: relative;
   height: 140px;
   width: 100%;
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
   font-size: 5.7rem;
   line-height: 66px;
   font-weight: 300;
@@ -447,16 +480,18 @@ h6::selection {
   font-family: Heebo, HelveticaNowText, Muli, Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-style: normal;
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
   font-size: 1.45rem;
   line-height: 30px;
   -webkit-transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
 }
 
 .about {
   width: 100%;
-  padding-bottom: 100px;
 }
 
 .about .row {
@@ -464,13 +499,14 @@ h6::selection {
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
   padding: 1rem 0;
+  border-radius: 12px;
 }
 
 .about__heading {
   font-size: 1rem;
   letter-spacing: 4px;
   font-weight: 300;
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
   text-transform: uppercase;
   padding-bottom: 4rem;
   position: relative;
@@ -481,7 +517,7 @@ h6::selection {
   content: '';
   height: 2px;
   width: 50px;
-  background-color: rgba(17, 19, 25, 0.705);
+  background-color: black;
   display: inline-block;
   vertical-align: middle;
   margin-right: 1rem;
@@ -505,16 +541,20 @@ h6::selection {
   text-rendering: optimizelegibility !important;
   letter-spacing: .03rem;
   font-weight: 300;
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
   margin-bottom: 24px;
 }
 
 .about__read-more {
-  color: #dd4242;
+  color: black;
   -webkit-transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
   transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
   display: inline-block;
   position: relative;
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 500;
 }
 
 .about__read-more:hover, .about__read-more:focus, .about__read-more:active {
@@ -529,7 +569,7 @@ h6::selection {
   right: 8px;
   left: 8px;
   height: 2px;
-  background: #dd4242;
+  background: black;
   -webkit-transform: scaleX(0) translateY(-2px);
           transform: scaleX(0) translateY(-2px);
   -webkit-transition: -webkit-transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -591,15 +631,15 @@ h6::selection {
 
 .refer {
   position: relative;
-  margin-top: 100px;
   z-index: 3;
+  margin-top: 5rem;
 }
 
 .refer__heading {
   font-size: 1rem;
   letter-spacing: 4px;
   font-weight: 300;
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
   text-transform: uppercase;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -611,14 +651,10 @@ h6::selection {
   content: '';
   height: 2px;
   width: 50px;
-  background-color: rgba(17, 19, 25, 0.705);
+  background-color: black;
   display: inline-block;
   vertical-align: middle;
   margin-right: 1rem;
-}
-
-.refer__carousel {
-  margin-top: 4rem;
 }
 
 .refer__company {
@@ -692,9 +728,12 @@ h6::selection {
 .refer .owl-dot {
   width: 16px;
   height: 16px;
-  background-color: #102a42 !important;
+  background-color: black !important;
   border-radius: 50%;
+  border: 4px solidblack;
   margin: 0 0.5rem;
+  -webkit-transition: 0.36s ease;
+  transition: 0.36s ease;
 }
 
 .refer .owl-dot:focus {
@@ -707,20 +746,21 @@ h6::selection {
 }
 
 .refer .owl-dot.active {
-  background-color: #dd4242 !important;
+  border: 4px solidblack;
+  background-color: white !important;
 }
 
 .jobs {
   position: relative;
   min-height: 60vh;
-  margin-top: 100px;
+  margin-top: 5rem;
 }
 
 .jobs__heading {
   font-size: 1rem;
   letter-spacing: 4px;
   font-weight: 300;
-  color: #111319;
+  color: black;
   text-transform: uppercase;
   padding-bottom: 4rem;
   position: relative;
@@ -731,14 +771,13 @@ h6::selection {
   content: '';
   height: 2px;
   width: 50px;
-  background: #111319;
+  background: black;
   display: inline-block;
   vertical-align: middle;
   margin-right: 1rem;
 }
 
 .jobs__container {
-  padding-bottom: 7rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(270px, 1fr))[auto-fill];
@@ -778,15 +817,16 @@ h6::selection {
   display: flex;
   -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
           box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .jobs__item:hover, .jobs__item:focus, .jobs__item:active {
-  color: #102a42;
+  color: black;
   text-decoration: none;
 }
 
 .jobs__item:hover {
-  border: 1px solid #102a42;
+  border: 1px solid black;
   -webkit-transform: scale(1.08);
           transform: scale(1.08);
   -webkit-box-shadow: 0 36px 64px 0 rgba(0, 0, 0, 0.1);
@@ -794,7 +834,7 @@ h6::selection {
 }
 
 .jobs__item:hover .jobs__check {
-  background-color: #102a42;
+  background-color: black;
 }
 
 .jobs__item:hover .jobs__check-text {
@@ -804,7 +844,7 @@ h6::selection {
 .jobs__job-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #102a42;
+  color: black;
   margin-bottom: 0;
 }
 
@@ -824,7 +864,7 @@ h6::selection {
 
 .jobs__check {
   border-radius: 50%;
-  border: 1px solid #102a42;
+  border: 1px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -852,7 +892,7 @@ h6::selection {
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
   opacity: 0;
-  color: #102a42;
+  color: black;
   width: 100%;
   left: 0;
   text-align: center;
@@ -863,14 +903,16 @@ h6::selection {
   background-color: rgba(255, 255, 255, 0.8);
   -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
-  margin-top: 5rem;
+  margin-top: 6rem;
   position: relative;
   z-index: 2;
-  color: #102a42;
+  color: black;
   margin-right: -144px;
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
   -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
           box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .news .owl-nav {
@@ -946,7 +988,7 @@ h6::selection {
 
 .news__item-container::after {
   content: '';
-  background-color: #222634;
+  background-color: #0d0d0d;
   height: 90%;
   right: -13px;
   width: 2px;
@@ -986,7 +1028,7 @@ h6::selection {
 }
 
 .news__btn {
-  color: #dd4242;
+  color: black;
   -webkit-transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
   transition: cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
   display: inline-block;
@@ -1009,7 +1051,7 @@ h6::selection {
   right: 8px;
   left: 8px;
   height: 2px;
-  background: #dd4242;
+  background: black;
   -webkit-transform: scaleX(0) translateY(-2px);
           transform: scaleX(0) translateY(-2px);
   -webkit-transition: -webkit-transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -1031,7 +1073,7 @@ h6::selection {
   background-color: transparent;
   min-height: 50vh;
   position: relative;
-  padding-bottom: 3rem;
+  padding-bottom: calc(3rem + 36px);
 }
 
 .contact__bottom-rectangle {
@@ -1046,6 +1088,7 @@ h6::selection {
   left: -144px;
   -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
           box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 36px;
 }
 
 .contact .row {
@@ -1055,6 +1098,7 @@ h6::selection {
 .contact__container {
   width: 50%;
   display: inline-block;
+  margin-top: 6rem;
 }
 
 .contact__form-container {
@@ -1068,9 +1112,10 @@ h6::selection {
   min-height: 200px;
   max-width: 540px;
   margin-left: auto;
-  margin-top: 5rem;
+  margin-top: 1rem;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  border-radius: 10px;
 }
 
 .contact__fieldset {
@@ -1087,16 +1132,16 @@ h6::selection {
   width: 100%;
   line-height: 16px;
   display: block;
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #102a42;
+  border-bottom: 1px solid black;
   margin: 0 -0.5rem 1rem 0;
   padding: 0.75rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 4px;
 }
 
 .contact__input:focus, .contact__textarea:focus {
-  border-bottom: 1px solid #dd4242;
   outline: none;
   background-color: #f2f2f2;
 }
@@ -1110,17 +1155,16 @@ h6::selection {
   display: inline-block;
   padding: 0.75rem 2rem;
   background-color: transparent;
-  border: 1px solid #dd4242;
+  border: 1px solidblack;
   border-radius: 100px;
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
   -webkit-transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact__form-btn:hover, .contact__form-btn:active {
-  background: #dd4242;
+  background: black;
   color: white;
-  border: 1px solid #dd4242;
 }
 
 .contact__form-btn:active {
@@ -1139,7 +1183,6 @@ h6::selection {
 
 .contact__info {
   padding: 1rem;
-  margin-top: 5rem;
   margin-right: auto;
   max-width: 540px;
 }
@@ -1148,7 +1191,7 @@ h6::selection {
   font-size: 1rem;
   letter-spacing: 4px;
   font-weight: 300;
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
   text-transform: uppercase;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -1160,7 +1203,7 @@ h6::selection {
   content: '';
   height: 2px;
   width: 50px;
-  background-color: rgba(17, 19, 25, 0.705);
+  background-color: black;
   display: inline-block;
   vertical-align: middle;
   margin-right: 1rem;
@@ -1168,7 +1211,7 @@ h6::selection {
 
 .contact__link {
   color: white;
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
@@ -1176,14 +1219,27 @@ h6::selection {
 .contact__link svg path {
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
+  fill: black;
+}
+
+.contact__link svg {
+  -webkit-transition: 0.36s ease;
+  transition: 0.36s ease;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .contact__link:hover, .contact__link:focus, .contact__link:active {
-  color: rgba(17, 19, 25, 0.705);
+  color: black;
+}
+
+.contact__link:hover svg, .contact__link:focus svg, .contact__link:active svg {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .contact__link:hover svg path, .contact__link:focus svg path, .contact__link:active svg path {
-  fill: rgba(17, 19, 25, 0.705);
+  fill: black;
 }
 
 .footer {
@@ -1195,6 +1251,10 @@ h6::selection {
   position: relative;
   bottom: 0;
   left: 0;
+  margin-top: -36px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  z-index: 10000;
 }
 
 .footer__container {
@@ -1207,14 +1267,19 @@ h6::selection {
   color: white;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  padding: 0.50rem;
+  border-radius: 4px;
+  -webkit-transition: 0.36s ease;
+  transition: 0.36s ease;
 }
 
 .footer__href:hover {
-  color: #dd4242;
+  color: black;
+  background: white;
 }
 
 .modal {
-  color: #102a42;
+  color: black;
 }
 
 .modal .btn-secondary {
@@ -1222,11 +1287,11 @@ h6::selection {
 }
 
 .modal .btn-primary {
-  background: #102a42;
+  background: black;
 }
 
 .modal-header {
-  color: #102a42;
+  color: black;
 }
 
 @media (min-width: 1800px) {
@@ -1238,8 +1303,9 @@ h6::selection {
 @media (max-width: 768px) {
   .header {
     bottom: initial;
-    top: 48px;
-    left: 32px;
+    top: 1rem;
+    left: 1rem;
+    width: calc(100% - 2rem);
     padding: 0;
   }
   .header__logo {
@@ -1254,7 +1320,7 @@ h6::selection {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.8);
     -webkit-transform: translate3d(0, -100%, 0);
             transform: translate3d(0, -100%, 0);
     -webkit-transition-duration: 600ms;
@@ -1274,8 +1340,8 @@ h6::selection {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-backdrop-filter: blur(8px);
-            backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
     max-width: 100%;
     width: 100%;
     opacity: 0;
@@ -1298,7 +1364,7 @@ h6::selection {
     width: 100%;
     display: block;
     font-size: 1.25rem;
-    padding: 24px;
+    padding: 16px;
     text-align: center;
   }
   .header .nav-toggle {
@@ -1344,6 +1410,7 @@ h6::selection {
     height: initial;
     right: initial;
     position: initial;
+    background: transparent;
   }
   .about .row {
     background: rgba(255, 255, 255, 0.8);
@@ -1365,6 +1432,7 @@ h6::selection {
   .news {
     margin-right: 0;
     margin-top: 5vh;
+    border-radius: none;
   }
   .news .owl-nav {
     height: 30%;

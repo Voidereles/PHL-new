@@ -158,25 +158,7 @@ const DecreaseLogoSize = function () {
     });
 
     if (window.innerWidth <= 768) {
-        gsap.to(camera.position, {
-            duration: 4,
-            x: 2.3,
-            y: 12,
-            z: 2,
-            onUpdate: function () {
-                update();
-            }
-        })
-
-        gsap.to(controls.target, {
-            duration: 4,
-            x: -0.6,
-            y: 3,
-            z: -0.3,
-            onUpdate: function () {
-                controls.update();
-            }
-        });
+        FarAwayLogo();
     }
 }
 

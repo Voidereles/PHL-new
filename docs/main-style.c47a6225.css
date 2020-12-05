@@ -183,10 +183,6 @@ h6::selection {
   border: none;
 }
 
-.dg main a {
-  margin-top: -50px;
-}
-
 .container-fluid {
   width: 100%;
   max-width: 1700px;
@@ -199,8 +195,6 @@ h6::selection {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 1700px;
-  padding: 0 1rem;
   top: 1rem;
 }
 
@@ -429,8 +423,6 @@ h6::selection {
   opacity: 1;
   bottom: 100px;
   right: 45px;
-  -webkit-transform: rotate(0);
-          transform: rotate(0);
 }
 
 .projects__item:hover .projects__title::before {
@@ -446,7 +438,7 @@ h6::selection {
 .projects__description {
   position: fixed;
   right: -30vw;
-  bottom: -50px;
+  bottom: 100px;
   height: auto;
   width: 300px;
   z-index: 1;
@@ -460,10 +452,6 @@ h6::selection {
   line-height: 30px;
   -webkit-transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-  -webkit-transform-origin: right top;
-          transform-origin: right top;
 }
 
 .about {
@@ -603,20 +591,8 @@ h6::selection {
 
 .refer {
   position: relative;
-  margin-left: -144px;
-  margin-right: -144px;
   margin-top: 100px;
-  width: calc(100% + 288px);
   z-index: 3;
-}
-
-.refer__container {
-  position: relative;
-  z-index: 1;
-  overflow-y: hidden;
-  margin: 0 144px;
-  margin-top: -50px;
-  max-width: calc(100% - 288px);
 }
 
 .refer__heading {
@@ -737,40 +713,7 @@ h6::selection {
 .jobs {
   position: relative;
   min-height: 60vh;
-  margin-left: -144px;
-  margin-right: -144px;
   margin-top: 100px;
-  width: calc(100% + 288px);
-}
-
-.jobs .container-fluid {
-  margin: 0 144px;
-  margin-top: -50px;
-  max-width: calc(100% - 288px);
-}
-
-.jobs__top-degree, .jobs__bottom-degree {
-  width: calc(100% + 144px);
-  margin-left: -144px;
-  margin-top: -100px;
-  display: none;
-}
-
-.jobs__bottom-degree {
-  margin-top: 0;
-  margin-bottom: -100px;
-}
-
-.jobs__bottom-rectangle {
-  position: absolute;
-  bottom: -50%;
-  height: 50%;
-  width: calc(100% + 144px);
-  background-color: rgba(255, 255, 255, 0.8);
-  -webkit-backdrop-filter: blur(8px);
-          backdrop-filter: blur(8px);
-  left: -144px;
-  display: none;
 }
 
 .jobs__heading {
@@ -1114,17 +1057,6 @@ h6::selection {
   display: inline-block;
 }
 
-.contact__bottom-degree {
-  width: calc(100% + 288px);
-  position: absolute;
-  top: -10%;
-  max-height: 600px;
-  z-index: 1;
-  left: -144px;
-  display: none;
-  top: 45%;
-}
-
 .contact__form-container {
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -1254,19 +1186,6 @@ h6::selection {
   fill: rgba(17, 19, 25, 0.705);
 }
 
-.map {
-  background-image: url("map.20980a22.PNG");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 50vh;
-  position: absolute;
-  left: 0;
-  z-index: 0;
-  width: calc(100% + 288px);
-  top: 0;
-  left: -144px;
-}
-
 .footer {
   font-size: 0.7rem;
   background-color: black;
@@ -1310,13 +1229,9 @@ h6::selection {
   color: #102a42;
 }
 
-.dg-ac {
-  z-index: 50;
-}
-
 @media (min-width: 1800px) {
   .news {
-    margin-left: 12vw;
+    margin-left: 14.15vw;
   }
 }
 
@@ -1464,9 +1379,6 @@ h6::selection {
     min-height: 300px;
     margin: 5rem auto auto auto;
   }
-  .contact__bottom-rectangle, .contact__bottom-degree {
-    display: none;
-  }
   .contact__container {
     display: initial;
     width: 100%;
@@ -1481,12 +1393,8 @@ h6::selection {
     padding: 40px 16px;
     margin: 5rem auto auto auto;
   }
-  .map {
-    height: 70vh;
-    bottom: initial;
-    background-size: contain;
-    position: relative;
-    z-index: 3;
+  .contact__bottom-rectangle {
+    display: none;
   }
   .footer {
     margin-top: -1rem;

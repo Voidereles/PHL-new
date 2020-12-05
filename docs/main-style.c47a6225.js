@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../fonts/HelveticaNowText-Bold.ttf":[["HelveticaNowText-Bold.d33ba852.ttf","fonts/HelveticaNowText-Bold.ttf"],"fonts/HelveticaNowText-Bold.ttf"],"./../fonts/HelveticaNowText-Medium.ttf":[["HelveticaNowText-Medium.5758ce01.ttf","fonts/HelveticaNowText-Medium.ttf"],"fonts/HelveticaNowText-Medium.ttf"],"./../fonts/HelveticaNowText-Regular.ttf":[["HelveticaNowText-Regular.1c8e73ba.ttf","fonts/HelveticaNowText-Regular.ttf"],"fonts/HelveticaNowText-Regular.ttf"],"./../fonts/HelveticaNowText-Light.ttf":[["HelveticaNowText-Light.46c241d7.ttf","fonts/HelveticaNowText-Light.ttf"],"fonts/HelveticaNowText-Light.ttf"],"./../images-icons/SVG/chevron-left.svg":[["chevron-left.f2914c94.svg","images-icons/SVG/chevron-left.svg"],"images-icons/SVG/chevron-left.svg"],"./../images-icons/SVG/chevron-right.svg":[["chevron-right.07e57061.svg","images-icons/SVG/chevron-right.svg"],"images-icons/SVG/chevron-right.svg"],"./../images-icons/map.PNG":[["map.20980a22.PNG","images-icons/map.PNG"],"images-icons/map.PNG"],"_css_loader":"../../../../../../../../usr/local/share/.config/yarn/global/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../../../../../usr/local/share/.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./../fonts/HelveticaNowText-Bold.ttf":[["HelveticaNowText-Bold.d33ba852.ttf","fonts/HelveticaNowText-Bold.ttf"],"fonts/HelveticaNowText-Bold.ttf"],"./../fonts/HelveticaNowText-Medium.ttf":[["HelveticaNowText-Medium.5758ce01.ttf","fonts/HelveticaNowText-Medium.ttf"],"fonts/HelveticaNowText-Medium.ttf"],"./../fonts/HelveticaNowText-Regular.ttf":[["HelveticaNowText-Regular.1c8e73ba.ttf","fonts/HelveticaNowText-Regular.ttf"],"fonts/HelveticaNowText-Regular.ttf"],"./../fonts/HelveticaNowText-Light.ttf":[["HelveticaNowText-Light.46c241d7.ttf","fonts/HelveticaNowText-Light.ttf"],"fonts/HelveticaNowText-Light.ttf"],"./../images-icons/SVG/chevron-left.svg":[["chevron-left.f2914c94.svg","images-icons/SVG/chevron-left.svg"],"images-icons/SVG/chevron-left.svg"],"./../images-icons/SVG/chevron-right.svg":[["chevron-right.07e57061.svg","images-icons/SVG/chevron-right.svg"],"images-icons/SVG/chevron-right.svg"],"_css_loader":"../../../../../../../../usr/local/share/.config/yarn/global/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../../../../../usr/local/share/.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33603" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38167" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
